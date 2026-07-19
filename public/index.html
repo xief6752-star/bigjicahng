@@ -4,646 +4,510 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>big博客 · 机场独立评测 2026</title>
-  <meta name="description" content="2026年机场科学上网独立评测博客，收录飞鸟、GlaDOS、瞬云、寰宇云、奶昔等主流机场深度测评，不接受付费植入，晚高峰速度实测、流媒体解锁验证，帮你找到真正好用的科学上网工具。">
-  <link rel="canonical" href="https://bigjichang.com/">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<meta name="description" content="2026年机场科学上网独立评测博客，收录飞鸟、GlaDOS、瞬云、寰宇云、奶昔等主流机场深度测评，不接受付费植入，晚高峰速度实测、流媒体解锁验证，帮你找到真正好用的科学上网工具。">
+<link rel="canonical" href="https://bigjichang.com/">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Noto Sans SC', sans-serif; background: #f7f6f2; color: #1a1a1a; font-size: 15px; line-height: 1.7; }
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans SC', sans-serif; background: #fffef9; color: #1a1a1a; font-size: 15px; line-height: 1.75; }
 a { color: inherit; text-decoration: none; }
-nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; border-bottom: 1px solid #e0ddd5; background: #f7f6f2; position: sticky; top: 0; z-index: 10; }
-.nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; }
-.nav-logo span { color: #888; font-weight: 400; margin-left: 8px; font-size: 12px; }
-.nav-links { display: flex; gap: 28px; }
-.nav-links a { font-size: 13px; color: #666; transition: color .2s; }
-.nav-links a:hover { color: #1a1a1a; }
-.nav-back { font-size: 13px; color: #888; } .nav-back:hover { color: #1a1a1a; }
-@media (max-width: 640px) { nav { padding: 16px 20px; } }
+
+/* ── Masthead ── */
+.masthead { border-bottom: 4px solid #1a1a1a; border-top: 4px solid #1a1a1a; padding: 6px 0; text-align: center; background: #fffef9; position: sticky; top: 0; z-index: 100; }
+.masthead-inner { max-width: 1040px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.masthead-logo { font-family: 'Noto Serif SC', serif; font-size: 1.6rem; font-weight: 900; letter-spacing: -1px; line-height: 1; }
+.masthead-logo sup { font-size: 0.5rem; color: #dc2626; font-family: 'IBM Plex Mono', monospace; letter-spacing: 2px; vertical-align: super; font-weight: 500; text-transform: uppercase; margin-left: 4px; }
+.masthead-nav { display: flex; gap: 0; }
+.masthead-nav a { font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; border-left: 1px solid #e0e0d8; color: #555; transition: color .15s, background .15s; }
+.masthead-nav a:first-child { border-left: none; }
+.masthead-nav a:hover { color: #dc2626; background: #fff5f5; }
+.masthead-date { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #aaa; letter-spacing: 1px; white-space: nowrap; }
+
+/* ── Layout ── */
+.page { max-width: 1040px; margin: 0 auto; padding: 0 32px; }
+
+/* ── Hero ── */
+.hero { padding: 52px 0 40px; border-bottom: 1px solid #1a1a1a; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; }
+.hero-left {}
+.hero-kicker { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #dc2626; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.hero-kicker::after { content: ''; flex: 1; height: 1px; background: #dc2626; max-width: 40px; }
+.hero-headline { font-family: 'Noto Serif SC', serif; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 900; line-height: 1.1; letter-spacing: -2px; margin-bottom: 20px; }
+.hero-headline .accent { color: #dc2626; }
+.hero-deck { font-size: 14px; color: #555; line-height: 1.9; max-width: 420px; border-left: 3px solid #dc2626; padding-left: 16px; }
+.hero-right { display: flex; flex-direction: column; gap: 12px; padding-bottom: 4px; }
+
+/* ── Ad slots ── */
+.ad-slot { display: block; border: 1px solid #e0e0d8; padding: 14px 18px; background: #fff; transition: border-color .2s, box-shadow .2s; position: relative; overflow: hidden; text-decoration: none; }
+.ad-slot:hover { border-color: #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; }
+.ad-slot-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #aaa; margin-bottom: 6px; }
+.ad-slot-text { font-size: 13px; font-weight: 700; color: #1a1a1a; line-height: 1.4; }
+.ad-slot-badge { display: inline-block; background: #dc2626; color: #fff; font-size: 9px; font-family: 'IBM Plex Mono', monospace; padding: 2px 6px; letter-spacing: 1px; margin-left: 8px; vertical-align: middle; font-weight: 500; }
+
+/* ── Section header ── */
+.section-head { display: flex; align-items: baseline; gap: 12px; padding: 28px 0 18px; border-bottom: 2px solid #1a1a1a; margin-bottom: 0; }
+.section-head-cn { font-family: 'Noto Serif SC', serif; font-size: 1.25rem; font-weight: 900; letter-spacing: -0.5px; }
+.section-head-en { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #dc2626; font-weight: 500; }
+.section-head-rule { flex: 1; height: 1px; background: #e0e0d8; }
+
+/* ── Pinned ── */
+.pinned-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #e0e0d8; }
+.pinned-item { padding: 28px 0 28px; display: block; border-right: 1px solid #e0e0d8; padding-right: 28px; transition: opacity .2s; }
+.pinned-item:last-child { border-right: none; padding-right: 0; padding-left: 28px; }
+.pinned-item:hover { opacity: 0.7; }
+.pinned-flag { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #fff; background: #dc2626; padding: 2px 8px; display: inline-block; margin-bottom: 12px; }
+.pinned-title { font-family: 'Noto Serif SC', serif; font-size: 1.15rem; font-weight: 700; line-height: 1.4; letter-spacing: -0.3px; margin-bottom: 10px; }
+.pinned-desc { font-size: 13px; color: #666; line-height: 1.7; }
+
+/* ── Two-col layout ── */
+.two-col { display: grid; grid-template-columns: 1fr 280px; gap: 0; }
+.col-main { border-right: 1px solid #e0e0d8; padding-right: 36px; }
+.col-side { padding-left: 28px; }
+
+/* ── Review list ── */
+.rev-list { }
+.rev-item { display: grid; grid-template-columns: 52px 1fr; gap: 20px; align-items: start; padding: 22px 0; border-bottom: 1px solid #e0e0d8; transition: opacity .2s; }
+.rev-item:hover { opacity: 0.7; }
+.rev-item:last-child { border-bottom: none; }
+.rev-score-wrap { text-align: center; padding-top: 4px; }
+.rev-score { font-family: 'Noto Serif SC', serif; font-size: 1.8rem; font-weight: 900; line-height: 1; color: #1a1a1a; display: block; }
+.rev-score.danger { color: #dc2626; }
+.rev-score-bar { width: 100%; height: 2px; background: #e0e0d8; margin-top: 5px; position: relative; }
+.rev-score-bar::after { content: ''; position: absolute; left: 0; top: 0; height: 100%; background: #1a1a1a; }
+.rev-meta-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+.rev-tag { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 7px; font-weight: 500; border: 1px solid currentColor; }
+.tag-red { color: #dc2626; }
+.tag-dark { color: #1a1a1a; }
+.tag-muted { color: #888; }
+.tag-blue { color: #1d4ed8; }
+.rev-date { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #bbb; letter-spacing: 0.5px; }
+.rev-title-link { font-family: 'Noto Serif SC', serif; font-size: 1.05rem; font-weight: 700; line-height: 1.4; letter-spacing: -0.2px; margin-bottom: 6px; display: block; }
+.rev-desc { font-size: 13px; color: #666; line-height: 1.7; }
+
+/* ── Tutorial grid ── */
+.tut-section { padding-top: 28px; }
+.tut-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.tut-item { display: block; padding: 16px 18px; border: 1px solid #e0e0d8; margin: -1px 0 0 -1px; transition: background .15s, box-shadow .15s; position: relative; }
+.tut-item:hover { background: #fff; box-shadow: inset 3px 3px 0 #1a1a1a; z-index: 1; }
+.tut-plat { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #dc2626; margin-bottom: 6px; }
+.tut-name { font-size: 13px; font-weight: 600; line-height: 1.5; color: #1a1a1a; }
+
+/* ── Sidebar ── */
+.side-block { padding: 24px 0; border-bottom: 1px solid #e0e0d8; }
+.side-block:last-child { border-bottom: none; }
+.side-title { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #dc2626; margin-bottom: 14px; font-weight: 500; }
+.side-about { font-size: 13px; color: #555; line-height: 1.8; }
+.side-list { list-style: none; }
+.side-list li { font-size: 12px; color: #555; padding: 5px 0; border-bottom: 1px dotted #e8e8e0; display: flex; gap: 6px; }
+.side-list li::before { content: '—'; color: #ccc; flex-shrink: 0; }
+.side-list a { color: #555; transition: color .15s; }
+.side-list a:hover { color: #dc2626; }
+.side-disclaimer { font-size: 11px; color: #888; line-height: 1.7; background: #f5f4ee; padding: 14px; border-left: 3px solid #e0e0d8; }
+
+/* ── Footer ── */
+.footer { border-top: 4px solid #1a1a1a; border-bottom: 4px solid #1a1a1a; margin-top: 56px; padding: 20px 32px; max-width: 1040px; margin-left: auto; margin-right: auto; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.footer-brand { font-family: 'Noto Serif SC', serif; font-weight: 900; font-size: 1rem; }
+.footer-note { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888; letter-spacing: 0.5px; }
+.footer-back { font-size: 12px; color: #888; border-bottom: 1px solid transparent; transition: color .15s, border-color .15s; }
+.footer-back:hover { color: #dc2626; border-color: #dc2626; }
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; gap: 28px; }
+  .two-col { grid-template-columns: 1fr; }
+  .col-main { border-right: none; padding-right: 0; }
+  .col-side { padding-left: 0; border-top: 2px solid #1a1a1a; margin-top: 40px; padding-top: 32px; }
+  .pinned-grid { grid-template-columns: 1fr; }
+  .pinned-item:last-child { border-left: none; padding-left: 0; border-top: 1px solid #e0e0d8; }
+  .pinned-item { border-right: none; padding-right: 0; }
+}
+@media (max-width: 600px) {
+  .page { padding: 0 18px; }
+  .masthead-inner { padding: 0 18px; }
+  .masthead-date { display: none; }
+  .tut-grid { grid-template-columns: 1fr; }
+  .hero-headline { font-size: 2.4rem; }
+  .footer { padding: 20px 18px; }
+}
 </style>
-
-
 </head>
 <body>
 
-
-<style>
-.hero { max-width: 860px; margin: 64px auto 0; padding: 0 48px 56px; border-bottom: 1px solid #e0ddd5; }
-.hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #aaa; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
-.hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: #ccc; display: block; }
-.hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -1px; margin-bottom: 18px; }
-.hero h1 em { font-style: normal; color: #999; }
-.hero-quote { font-size: 14px; color: #888; font-weight: 300; border-left: 2px solid #ddd; padding-left: 16px; margin-bottom: 28px; line-height: 1.8; }
-.hero-quote cite { font-style: normal; font-size: 12px; color: #bbb; display: block; margin-top: 4px; }
-.hero-desc { font-size: 15px; color: #555; max-width: 560px; line-height: 1.9; }
-
-.ad-slots { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 36px; max-width: 640px; }
-.ad-slot { height: 90px; border: 1px dashed #d0ccc5; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 13px; text-decoration: none; transition: all .2s; background: rgba(0,0,0,0.02); font-family: 'IBM Plex Mono', monospace; overflow: hidden; position: relative; width: 100%; }
-.ad-slot:hover { border-color: #888; color: #555; background: rgba(0,0,0,0.05); }
-.ad-slot.text-ad { background: linear-gradient(45deg, #1a1a1a, #3d2c8d, #c0392b, #1a1a1a); background-size: 400% 400%; animation: gradientBG 8s ease infinite, glowBorder 2s infinite alternate; color: #fff; font-weight: 700; font-size: 16px; border: 2px solid transparent; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-@keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-@keyframes glowBorder { 0% { box-shadow: 0 0 5px rgba(231, 76, 60, 0.2); border-color: rgba(231, 76, 60, 0.5); } 100% { box-shadow: 0 0 20px rgba(231, 76, 60, 0.8), inset 0 0 10px rgba(231, 76, 60, 0.5); border-color: rgba(231, 76, 60, 1); } }
-.ad-slot.text-ad::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%); transform: skewX(-25deg); animation: shine 3s infinite; }
-@keyframes shine { 0% { left: -100%; } 20% { left: 200%; } 100% { left: 200%; } }
-.ad-slot.text-ad:hover { transform: scale(1.02); box-shadow: 0 8px 25px rgba(231,76,60,0.6); color: #fff; }
-.ad-ribbon { position: absolute; top: 12px; right: -30px; background: #e74c3c; color: #fff; padding: 4px 30px; font-size: 11px; font-weight: 800; font-family: sans-serif; letter-spacing: 1px; transform: rotate(45deg); text-transform: uppercase; box-shadow: 0 2px 4px rgba(0,0,0,0.3); z-index: 10; animation: flashRibbon 1.5s infinite; pointer-events: none; }
-@keyframes flashRibbon { 0%, 100% { background: #e74c3c; color: #fff; text-shadow: none; } 50% { background: #f1c40f; color: #d35400; text-shadow: 0 0 5px rgba(255,255,255,0.8); } }
-
-.main { max-width: 860px; margin: 0 auto; padding: 0 48px; display: flex; gap: 60px; }
-.content { flex: 1; min-width: 0; padding-top: 56px; }
-.sidebar { width: 240px; padding-top: 60px; flex-shrink: 0; }
-
-.section-title { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #1a1a1a; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; font-weight: 500; display: flex; align-items: center; gap: 8px; }
-.section-title::after { content: ''; flex: 1; height: 1px; background: #e0ddd5; }
-
-.pinned-card { background: #1a1a1a; color: #f7f6f2; border-radius: 12px; padding: 32px 36px; margin-bottom: 48px; position: relative; overflow: hidden; transition: transform .2s; display: block; }
-.pinned-card:hover { transform: translateY(-2px); }
-.pinned-tag { position: absolute; top: 0; right: 24px; background: #c0392b; font-size: 10px; font-family: 'IBM Plex Mono', monospace; padding: 4px 8px; border-radius: 0 0 4px 4px; font-weight: 500; }
-.pinned-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -.5px; }
-.pinned-desc { font-size: 14px; color: #aaa; line-height: 1.6; font-weight: 300; }
-
-.reviews { display: flex; flex-direction: column; gap: 32px; margin-bottom: 56px; }
-.rev-card { display: flex; align-items: flex-start; gap: 24px; padding-bottom: 32px; border-bottom: 1px dashed #e0ddd5; transition: opacity .2s; }
-.rev-card:hover { opacity: .7; }
-.rev-card:last-child { border-bottom: none; padding-bottom: 0; }
-.rev-score { font-family: 'IBM Plex Mono', monospace; font-size: 2.2rem; font-weight: 500; color: #1a1a1a; line-height: 1; width: 64px; flex-shrink: 0; }
-.rev-info { flex: 1; }
-.rev-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.rev-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 3px; font-weight: 500; }
-.tag-red { background: #5a1e1e; color: #fff; }
-.tag-dark { background: #3d2c8d; color: #fff; }
-.tag-brown { background: #6b3a2a; color: #fff; }
-.tag-blue { background: #1d3557; color: #fff; }
-.rev-date { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #aaa; }
-.rev-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
-.rev-desc { font-size: 14px; color: #666; line-height: 1.6; }
-
-.tuts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 48px; }
-.tut-card { border: 1px solid #e0ddd5; border-radius: 8px; padding: 20px 24px; background: #fff; transition: border-color .2s; display: block; }
-.tut-card:hover { border-color: #aaa; }
-.tut-plat { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888; margin-bottom: 8px; }
-.tut-name { font-weight: 700; font-size: 15px; color: #1a1a1a; }
-
-.widget { margin-bottom: 40px; }
-.wg-title { font-size: 12px; font-weight: 700; color: #1a1a1a; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
-.wg-list { list-style: none; }
-.wg-list li { margin-bottom: 12px; font-size: 13px; color: #555; }
-.wg-list li a { color: #555; border-bottom: 1px solid transparent; transition: border-color .2s; }
-.wg-list li a:hover { border-color: #555; }
-
-@media (max-width: 800px) { .main { flex-direction: column; gap: 40px; } .sidebar { width: 100%; padding-top: 0; border-top: 1px solid #e0ddd5; padding-top: 40px; } }
-@media (max-width: 640px) { .hero, .main { padding-left: 20px; padding-right: 20px; } .tuts-grid { grid-template-columns: 1fr; } .rev-card { flex-direction: column; gap: 12px; } .rev-score { font-size: 1.8rem; } .ad-slots { grid-template-columns: 1fr; } .ad-slot { height: 80px; } }
-</style>
-
-<nav>
-  <div class="nav-logo">big博客<span>独立评测</span></div>
-  <div class="nav-links">
-    <a href="#reviews">评测</a>
-    <a href="#tutorials">教程</a>
-    <a href="#knowledge">科普</a>
+<!-- ── Masthead ── -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-logo">big博客<sup>indie</sup></div>
+    <nav class="masthead-nav">
+      <a href="#reviews">评测</a>
+      <a href="#tutorials">教程</a>
+      <a href="#knowledge">科普</a>
+      <a href="#about">关于</a>
+    </nav>
+    <div class="masthead-date">2026 · 独立 · 无广</div>
   </div>
-</nav>
-
-<header class="hero">
-  <div class="hero-eyebrow">Indie Reviews</div>
-  <h1>要快更要稳<em><br>还要实惠</em></h1>
-  <div class="hero-quote">
-    「世界会好吗？那些狗屁不如的青春。」
-    <cite>—— 李志《这个世界会好吗》</cite>
-  </div>
-  <p class="hero-desc">这里是我自费购买、测试和长期使用的科学上网节点（机场）记录。只有真实的速度测试和稳定的推荐。</p>
-  
-  
-  <div class="ad-slots">
-    
-    <a href="https://ccc.jichang.best/#/register?code=MhKYAnsG" class="ad-slot text-ad" target="_blank" title="⚡ 瞬云 IPLC | 晚高峰 4K 秒开 | 专属 8 折特惠 ⚡优惠码：20off" style="">
-      <div class="ad-ribbon">SALE</div>
-      
-        ⚡ 瞬云 IPLC | 晚高峰 4K 秒开 | 专属 8 折特惠 ⚡优惠码：20off
-      
-    </a>
-    
-    <a href="https://VIP1.huanyuyunbest.com/#/register?code=CPBmzXgk" class="ad-slot text-ad" target="_blank" title="寰宇云 | 全新防封锁协议     全解锁AI/流媒体  全球50+节点，开业78折" style="">
-      <div class="ad-ribbon">SALE</div>
-      
-        寰宇云 | 全新防封锁协议     全解锁AI/流媒体  全球50+节点，开业78折
-      
-    </a>
-    
-  </div>
-  
 </header>
 
-<main class="main">
-  <div class="content">
-    
-    <div class="section-title">置顶推荐 / Pinned</div>
-    
-    <a href="huanyuyun-upgrade-2026.html" class="pinned-card">
-      <div class="pinned-tag">UPDATED</div>
-      <div class="pinned-title">寰宇云机场深度评测2026：BGP三网优化+满血IEPL，晚高峰不降速</div>
-      <div class="pinned-desc">全面升级三网智能路由，不限设备数量，原生IP流媒体完美解锁。</div>
-    </a>
-    
-    <a href="post-2026-best.html" class="pinned-card">
-      <div class="pinned-tag">UPDATED</div>
-      <div class="pinned-title">2026 年机场魔法梯子<br>完整推荐指南</div>
-      <div class="pinned-desc">
-    整理了目前市面上稳定运营、值得推荐的机场服务，按价位和用途分类，
-    附上三个月真实测速数据。无论你是轻度用户还是重度用户，这篇都能找到合适的选项。
-    跑路的及时剔除，不做已死机场的广告。
+<div class="page">
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-kicker">独立评测 / Indie Reviews</div>
+      <h1 class="hero-headline">要快<br>更要稳<br><span class="accent">还要实惠</span></h1>
+      <p class="hero-deck">这里是我自费购买、测试和长期使用的机场节点记录。<br>只有真实的速度测试和稳定的推荐。不接受付费植入。</p>
+    </div>
+    <div class="hero-right">
+      <a href="https://ccc.jichang.best/#/register?code=MhKYAnsG" class="ad-slot" target="_blank" rel="noopener">
+        <div class="ad-slot-label">推荐赞助商 <span class="ad-slot-badge">SALE</span></div>
+        <div class="ad-slot-text">⚡ 瞬云 IPLC · 晚高峰 4K 秒开 · 专属 8 折优惠码：20off</div>
+      </a>
+      <a href="https://VIP1.huanyuyunbest.com/#/register?code=CPBmzXgk" class="ad-slot" target="_blank" rel="noopener">
+        <div class="ad-slot-label">推荐赞助商 <span class="ad-slot-badge">NEW</span></div>
+        <div class="ad-slot-text">寰宇云 · 防封锁新协议 · 全解锁 AI/流媒体 · 开业 78 折</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Pinned ── -->
+  <div class="section-head">
+    <span class="section-head-cn">置顶推荐</span>
+    <span class="section-head-en">Pinned</span>
+    <span class="section-head-rule"></span>
   </div>
+  <div class="pinned-grid">
+    <a href="huanyuyun-upgrade-2026.html" class="pinned-item">
+      <div class="pinned-flag">Updated</div>
+      <div class="pinned-title">寰宇云机场深度评测 2026：BGP 三网优化 + 满血 IEPL，晚高峰不降速</div>
+      <div class="pinned-desc">全面升级三网智能路由，不限设备数量，原生 IP 流媒体完美解锁。</div>
     </a>
-    
-    
-
-    <div class="section-title" id="reviews">最新评测 / Reviews</div>
-    <div class="reviews">
-      
-      <a href="runaway-airport-warning.html" class="rev-card">
-        <div class="rev-score">2.0</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-red">避坑</span>
-            <span class="rev-date">2026-05-27</span>
-          </div>
-          <div class="rev-title">【避坑】某新晋“一元机场”光速跑路全纪录</div>
-          <div class="rev-desc">便宜没好货，再次印证了这个不变的真理。</div>
-        </div>
-      </a>
-      
-      <a href="review-flyingbird.html" class="rev-card">
-        <div class="rev-score">9.4</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-dark">稳定专线</span>
-            <span class="rev-date">2026-03-12</span>
-          </div>
-          <div class="rev-title">飞鸟机场 (FlyingBird) 深度评测：全线 IEPL 专线的极速标杆</div>
-          <div class="rev-desc">晚高峰 4K 视频秒开！全协议支持，提供多端定制客户端，追求低延迟体验的不二之选。</div>
-        </div>
-      </a>
-      
-      <a href="review-glados.html" class="rev-card">
-        <div class="rev-score">9.3</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-dark">老牌学术</span>
-            <span class="rev-date">2026-02-18</span>
-          </div>
-          <div class="rev-title">GlaDOS 机场深度评测：稳定运营近十年的学术与极客传奇</div>
-          <div class="rev-desc">支持 WireGuard 协议，专为学生与科研人员提供免费优惠，纯净度与安全性的终极代表。</div>
-        </div>
-      </a>
-      
-      <a href="review-ssrdog.html" class="rev-card">
-        <div class="rev-score">9.2</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-dark">游戏加速</span>
-            <span class="rev-date">2026-04-05</span>
-          </div>
-          <div class="rev-title">SSRDOG 机场深度评测：全自建中转骨干网的低延迟电竞标杆</div>
-          <div class="rev-desc">多协议完美支持，低延迟游戏节点深度调优，追求顺畅联机体验的玩家首选。</div>
-        </div>
-      </a>
-      
-      <a href="review-siliconflow.html" class="rev-card">
-        <div class="rev-score">9.6</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-brown">性价比</span>
-            <span class="rev-date">2026-05-24</span>
-          </div>
-          <div class="rev-title">硅基流动 (SiliconFlow) 深度评测：国产开源大模型托管天花板</div>
-          <div class="rev-desc">实测 TTFB 延迟仅 45ms！开源模型官方直连，100% 显卡保真无套路。</div>
-        </div>
-      </a>
-      
-      <a href="review-fourks.html" class="rev-card">
-        <div class="rev-score">9.5</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-blue">稳定性</span>
-            <span class="rev-date">2026-05-24</span>
-          </div>
-          <div class="rev-title">4ksAPI 深度评测：稳定运行超两年的老牌中转网关标杆</div>
-          <div class="rev-desc">上游稳定、支持微信/支付宝充值与正规增值税开票，高校与开发者的省心首选。</div>
-        </div>
-      </a>
-      
-      <a href="review-shunyun.html" class="rev-card">
-        <div class="rev-score">8.9</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-dark">综合推荐</span>
-            <span class="rev-date">2026-05-16</span>
-          </div>
-          <div class="rev-title">瞬云</div>
-          <div class="rev-desc">近期实测的一匹黑马，IPLC 专线质量扎实且月付门槛低。如果你预算有限又不想在高峰期忍受转圈缓冲，这是一个极具性价比的选择。</div>
-        </div>
-      </a>
-      
-      <a href="review-huanyuyun.html" class="rev-card">
-        <div class="rev-score">8.4</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-blue">稳定性</span>
-            <span class="rev-date">2026-05-16</span>
-          </div>
-          <div class="rev-title">寰宇云</div>
-          <div class="rev-desc">如果你是重度 Netflix/Disney+ 玩家，或者有特殊的小众地区节点需求，这家 BGP 中转能给你提供 20+ 个国家和地区的稳定解锁支持。</div>
-        </div>
-      </a>
-      
-      <a href="review-kycloud.html" class="rev-card">
-        <div class="rev-score">8.4</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-dark">老牌稳健</span>
-            <span class="rev-date">2026-04-29</span>
-          </div>
-          <div class="rev-title">Kycloud 评测</div>
-          <div class="rev-desc">体量极大的老牌厂商，表现中规中矩，胜在跑路风险极低。</div>
-        </div>
-      </a>
-      
-      <a href="review-rixcloud.html" class="rev-card">
-        <div class="rev-score">8.3</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-dark">速度测评</span>
-            <span class="rev-date">2026-01-26</span>
-          </div>
-          <div class="rev-title">RixCloud</div>
-          <div class="rev-desc">曾以极速著称但也曾陷入风波的争议之作。如今复活归来，晚高峰测速依然亮眼，但建议仅作为备用方案，切忌盲目年付。</div>
-        </div>
-      </a>
-      
-      <a href="review-nexitally.html" class="rev-card">
-        <div class="rev-score">9.3</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-dark">顶级专线</span>
-            <span class="rev-date">2025-11-22</span>
-          </div>
-          <div class="rev-title">Nexitally (奶昔) 评测</div>
-          <div class="rev-desc">圈内公认的顶级大厂，除了贵几乎没有缺点。适合预算充足的极致体验追求者。</div>
-        </div>
-      </a>
-      
-      <a href="review-mdss.html" class="rev-card">
-        <div class="rev-score">7.8</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-red">避坑指南</span>
-            <span class="rev-date">2025-08-10</span>
-          </div>
-          <div class="rev-title">MDSS 评测</div>
-          <div class="rev-desc">曾经的王者跌落神坛，如今只剩下情怀支撑。</div>
-        </div>
-      </a>
-      
-      <a href="review-amytelecom.html" class="rev-card">
-        <div class="rev-score">8.5</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-blue">稳定性</span>
-            <span class="rev-date">2025-07-11</span>
-          </div>
-          <div class="rev-title">AmyTelecom 评测</div>
-          <div class="rev-desc">技术流团队运营，不屑于搞营销，全靠口碑相传的老牌劲旅。</div>
-        </div>
-      </a>
-      
-      <a href="review-wgetcloud.html" class="rev-card">
-        <div class="rev-score">9.1</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-dark">综合推荐</span>
-            <span class="rev-date">2025-06-06</span>
-          </div>
-          <div class="rev-title">WgetCloud</div>
-          <div class="rev-desc">我目前使用最久的主力机场。IEPL 专线接入，晚高峰 4K 视频秒开。价格偏中上，但在这个鱼龙混杂的圈子里，花钱买安心绝对值得。</div>
-        </div>
-      </a>
-      
-      <a href="review-kuromis.html" class="rev-card">
-        <div class="rev-score">8.2</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-dark">备用推荐</span>
-            <span class="rev-date">2025-05-07</span>
-          </div>
-          <div class="rev-title">Kuromis 评测</div>
-          <div class="rev-desc">二次元风格包装下的黑马，性价比不错但偶有抽风。</div>
-        </div>
-      </a>
-      
-      <a href="review-flowercloud.html" class="rev-card">
-        <div class="rev-score">8.6</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-brown">性价比</span>
-            <span class="rev-date">2025-02-14</span>
-          </div>
-          <div class="rev-title">FlowerCloud (花云) 评测</div>
-          <div class="rev-desc">界面好看，节点靠谱，中杯价位买到大杯体验的代表之一。</div>
-        </div>
-      </a>
-      
-      <a href="review-ytoo.html" class="rev-card">
-        <div class="rev-score">8.8</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-dark">综合推荐</span>
-            <span class="rev-date">2024-09-13</span>
-          </div>
-          <div class="rev-title">Ytoo (歪兔) 评测</div>
-          <div class="rev-desc">日韩节点爱好者的福音，流媒体解锁全绿的实力派中坚力量。</div>
-        </div>
-      </a>
-      
-      <a href="review-tag.html" class="rev-card">
-        <div class="rev-score">8.7</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-dark">冷门覆盖</span>
-            <span class="rev-date">2024-09-13</span>
-          </div>
-          <div class="rev-title">TAG 机场评测</div>
-          <div class="rev-desc">拥有极其变态的全球节点覆盖率，你能在地球上找到的国家它几乎都有节点。</div>
-        </div>
-      </a>
-      
-      <a href="review-bywave.html" class="rev-card">
-        <div class="rev-score">8.7</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-brown">性价比</span>
-            <span class="rev-date">2023-11-14</span>
-          </div>
-          <div class="rev-title">ByWave</div>
-          <div class="rev-desc">这是一家几乎不做营销的老牌机场，节点不花哨但 IPLC 专线极其稳定。适合不喜欢折腾、想要安安静静上网的长期主义者。</div>
-        </div>
-      </a>
-      
-      <a href="review-1yuan.html" class="rev-card">
-        <div class="rev-score">3.5</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-red">避坑指南</span>
-            <span class="rev-date">2023-10-30</span>
-          </div>
-          <div class="rev-title">一元机场 / 便宜机场避坑</div>
-          <div class="rev-desc">买的永远没有卖的精，不要试图在机场圈子里寻找慈善家。</div>
-        </div>
-      </a>
-      
-      <a href="review-immtelecom.html" class="rev-card">
-        <div class="rev-score">9.0</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-dark">顶级专线</span>
-            <span class="rev-date">2023-04-11</span>
-          </div>
-          <div class="rev-title">ImmTelecom 评测</div>
-          <div class="rev-desc">又一家主打高端的专线机场，商务人士可以闭眼入。</div>
-        </div>
-      </a>
-      
-      <a href="review-cheap.html" class="rev-card">
-        <div class="rev-score">5.5</div>
-        <div class="rev-info">
-          <div class="rev-meta">
-            <span class="rev-tag tag-red">避坑指南</span>
-            <span class="rev-date">2023-03-26</span>
-          </div>
-          <div class="rev-title">9.9 元低价机场测评</div>
-          <div class="rev-desc">别被“9.9元1000G”的噱头骗了。深入揭秘低价机场的超售套路、晚高峰断流真相，以及为什么你迟早会为贪便宜买单。</div>
-        </div>
-      </a>
-      
-    </div>
-
-    <div class="section-title" id="tutorials">配置教程 / Tutorials</div>
-    <div class="tuts-grid">
-      
-      <a href="save-battery-clash-shadowrocket.html" class="tut-card">
-        <div class="tut-plat">实用教程</div>
-        <div class="tut-name">手机挂着梯子耗电太快？教你如何正确配置 Clash/Shadowrocket 的分流规则省电 →</div>
-      </a>
-      
-      <a href="openai-ban-recovery.html" class="tut-card">
-        <div class="tut-plat">防封教程</div>
-        <div class="tut-name">血泪史总结：被 OpenAI 大规模封号后该怎么办？防封存活与极致申诉实操 →</div>
-      </a>
-      
-      <a href="how-to-read-speedtest-seo.html" class="tut-card">
-        <div class="tut-plat">防骗教程</div>
-        <div class="tut-name">如何通过测速图判断机场的真实质量？教你避开虚假宣传 →</div>
-      </a>
-      
-      <a href="shadowrocket-advanced.html" class="tut-card">
-        <div class="tut-plat">iOS</div>
-        <div class="tut-name">Shadowrocket 高级分流规则与自定义配置 →</div>
-      </a>
-      
-      <a href="tutorial-cursor.html" class="tut-card">
-        <div class="tut-plat">Cursor</div>
-        <div class="tut-name">神级配置：在 Cursor 代码编辑器中接入自定义中转 API →</div>
-      </a>
-      
-      <a href="tutorial-quantumultx.html" class="tut-card">
-        <div class="tut-plat">iOS 进阶</div>
-        <div class="tut-name">Quantumult X<br>使用教程 →</div>
-      </a>
-      
-      <a href="tutorial-singbox-android.html" class="tut-card">
-        <div class="tut-plat">Android</div>
-        <div class="tut-name">sing-box<br>Android 使用教程 →</div>
-      </a>
-      
-      <a href="tutorial-shadowrocket.html" class="tut-card">
-        <div class="tut-plat">iOS</div>
-        <div class="tut-name">Shadowrocket（小火箭）<br>使用教程 →</div>
-      </a>
-      
-      <a href="tutorial-mihomo-router.html" class="tut-card">
-        <div class="tut-plat">路由器</div>
-        <div class="tut-name">OpenWrt + Mihomo<br>旁路由透明代理教程 →</div>
-      </a>
-      
-      <a href="tutorial-v2rayn.html" class="tut-card">
-        <div class="tut-plat">Windows</div>
-        <div class="tut-name">v2rayN<br>使用教程 →</div>
-      </a>
-      
-      <a href="tutorial-v2rayu.html" class="tut-card">
-        <div class="tut-plat">macOS</div>
-        <div class="tut-name">V2RayU<br>macOS 使用教程 →</div>
-      </a>
-      
-      <a href="tutorial-clashx-mac.html" class="tut-card">
-        <div class="tut-plat">macOS</div>
-        <div class="tut-name">ClashX / ClashX Pro<br>使用教程 →</div>
-      </a>
-      
-      <a href="tutorial-clash-win.html" class="tut-card">
-        <div class="tut-plat">Windows</div>
-        <div class="tut-name">Clash for Windows<br>使用教程 →</div>
-      </a>
-      
-    </div>
-
-    
-    <div class="section-title" id="knowledge">行业科普 / Knowledge</div>
-    <div class="tuts-grid">
-      
-      <a href="2026-gaming-proxy-guide.html" class="tut-card">
-        <div class="tut-plat">游戏科普</div>
-        <div class="tut-name">玩外服游戏延迟太高？2026年游戏加速器与“游戏专线机场”选购全攻略 →</div>
-      </a>
-      
-      <a href="ecommerce-tiktok-proxy-2026.html" class="tut-card">
-        <div class="tut-plat">跨境电商</div>
-        <div class="tut-name">企业级跨境电商与 TikTok 专线怎么选？别再用“个人机场”做外贸了！ →</div>
-      </a>
-      
-      <a href="2026-ai-unlock-guide.html" class="tut-card">
-        <div class="tut-plat">AI科普</div>
-        <div class="tut-name">2026年终极指南：别被忽悠了，怎样才能真正稳定原生解锁 ChatGPT-4o 与 Claude 3.7？ →</div>
-      </a>
-      
-      <a href="sora-bandwidth-impact-2026.html" class="tut-card">
-        <div class="tut-plat">AI风向</div>
-        <div class="tut-name">Sora 与视频大模型时代：揭秘为什么你的机场流量突然像流水一样不够用了？ →</div>
-      </a>
-      
-      <a href="2026-router-guide-seo.html" class="tut-card">
-        <div class="tut-plat">硬件科普</div>
-        <div class="tut-name">2026年翻墙路由器选购指南：软路由与硬路由深度对比 →</div>
-      </a>
-      
-      <a href="2026-proxy-protocols-seo.html" class="tut-card">
-        <div class="tut-plat">技术科普</div>
-        <div class="tut-name">SSR、V2Ray、Trojan 已经落伍了？2026 年最新主流代理协议解析 →</div>
-      </a>
-      
-      <a href="2026-crypto-payment-safety.html" class="tut-card">
-        <div class="tut-plat">安全科普</div>
-        <div class="tut-name">2026年机场支付安全指南：如何防止交易被骗？ →</div>
-      </a>
-      
-      <a href="streaming-unlock-explained-2026.html" class="tut-card">
-        <div class="tut-plat">原理科普</div>
-        <div class="tut-name">流媒体解锁原理解析：为什么你的节点看不了 Netflix？ →</div>
-      </a>
-      
-      <a href="relay-vs-iplc-2026.html" class="tut-card">
-        <div class="tut-plat">选购科普</div>
-        <div class="tut-name">中转节点 vs 专线节点：2026年的价格差还值得吗？ →</div>
-      </a>
-      
-      <a href="airport-runaway-warning-june.html" class="tut-card">
-        <div class="tut-plat">避坑</div>
-        <div class="tut-name">【预警】跑路风险激增：这几类机场可能撑不过这个月 →</div>
-      </a>
-      
-      <a href="2026-h2-guide.html" class="tut-card">
-        <div class="tut-plat">行业科普</div>
-        <div class="tut-name">2026年下半年科学上网指南：如何在严密审查下求生？ →</div>
-      </a>
-      
-      <a href="article-yunnan-gateway.html" class="tut-card">
-        <div class="tut-plat">行业观察</div>
-        <div class="tut-name">时隔多年全国新增国际局！云南出境陆缆直连 9Tbps 能拯救你的晚高峰吗？ →</div>
-      </a>
-      
-      <a href="article-iepl-iplc.html" class="tut-card">
-        <div class="tut-plat">行业科普</div>
-        <div class="tut-name">IEPL、IPLC、BGP中转到底有什么区别？别再交智商税了 →</div>
-      </a>
-      
-      <a href="article-chaoshou.html" class="tut-card">
-        <div class="tut-plat">行业杂谈</div>
-        <div class="tut-name">为什么你的机场晚高峰总是卡成狗？揭秘超售背后的产业链 →</div>
-      </a>
-      
-      <a href="article-self-host.html" class="tut-card">
-        <div class="tut-plat">行业科普</div>
-        <div class="tut-name">自建节点和买机场哪个更安全？一文终结这个争议 →</div>
-      </a>
-      
-    </div>
-    
+    <a href="post-2026-best.html" class="pinned-item">
+      <div class="pinned-flag">Updated</div>
+      <div class="pinned-title">2026 年机场完整推荐指南</div>
+      <div class="pinned-desc">整理了目前稳定运营、值得推荐的机场，按价位和用途分类，附三个月真实测速数据。跑路的及时剔除，不做已死机场的广告。</div>
+    </a>
   </div>
 
-  <aside class="sidebar">
-    <div class="widget">
-      <div class="wg-title">关于博主</div>
-      <p style="font-size:13px;color:#666;line-height:1.8;">资深摇滚歌迷，坐标华东。讨厌一切花里胡哨的营销。写评测是为了自己备忘，也是为了在这个充满恰饭广告的圈子里留一片干净的自留地。</p>
-    </div>
-    <div class="widget">
-      <div class="wg-title">所有评测</div>
-      <ul class="wg-list">
-        
-        <li><a href="runaway-airport-warning.html">【避坑】某新晋“一元机场”光速跑路全纪录</a></li>
-        
-        <li><a href="review-flyingbird.html">飞鸟机场 (FlyingBird) 深度评测：全线 IEPL 专线的极速标杆</a></li>
-        
-        <li><a href="review-glados.html">GlaDOS 机场深度评测：稳定运营近十年的学术与极客传奇</a></li>
-        
-        <li><a href="review-ssrdog.html">SSRDOG 机场深度评测：全自建中转骨干网的低延迟电竞标杆</a></li>
-        
-        <li><a href="review-siliconflow.html">硅基流动 (SiliconFlow) 深度评测：国产开源大模型托管天花板</a></li>
-        
-        <li><a href="review-fourks.html">4ksAPI 深度评测：稳定运行超两年的老牌中转网关标杆</a></li>
-        
-        <li><a href="review-shunyun.html">瞬云</a></li>
-        
-        <li><a href="review-huanyuyun.html">寰宇云</a></li>
-        
-        <li><a href="review-kycloud.html">Kycloud 评测</a></li>
-        
-        <li><a href="review-rixcloud.html">RixCloud</a></li>
-        
-        <li><a href="review-nexitally.html">Nexitally (奶昔) 评测</a></li>
-        
-        <li><a href="review-mdss.html">MDSS 评测</a></li>
-        
-        <li><a href="review-amytelecom.html">AmyTelecom 评测</a></li>
-        
-        <li><a href="review-wgetcloud.html">WgetCloud</a></li>
-        
-        <li><a href="review-kuromis.html">Kuromis 评测</a></li>
-        
-        <li><a href="review-flowercloud.html">FlowerCloud (花云) 评测</a></li>
-        
-        <li><a href="review-ytoo.html">Ytoo (歪兔) 评测</a></li>
-        
-        <li><a href="review-tag.html">TAG 机场评测</a></li>
-        
-        <li><a href="review-bywave.html">ByWave</a></li>
-        
-        <li><a href="review-1yuan.html">一元机场 / 便宜机场避坑</a></li>
-        
-        <li><a href="review-immtelecom.html">ImmTelecom 评测</a></li>
-        
-        <li><a href="review-cheap.html">9.9 元低价机场测评</a></li>
-        
-      </ul>
-    </div>
-    <div class="widget" style="padding:16px;background:#eaddc8;border-radius:8px;">
-      <div class="wg-title" style="margin-bottom:8px;">免责声明</div>
-      <p style="font-size:12px;color:#6a5d4d;line-height:1.6;">本站测速仅代表测试当时的网络环境。购买任何服务请按月付起步，警惕年付跑路风险。</p>
-    </div>
-  </aside>
-</main>
+  <!-- ── Two-col main ── -->
+  <div class="two-col" style="padding-top:0;">
+    <div class="col-main">
 
-<footer style="max-width:860px;margin:60px auto 0;padding:32px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e0ddd5;flex-wrap:wrap;gap:12px;">
-  <span style="font-size:13px;color:#999;">big博客评测 · <strong style="color:#555;">独立 · 无广</strong></span>
-  <a href="/" style="font-size:13px;color:#888;">← 返回首页</a>
+      <!-- Reviews -->
+      <div class="section-head" id="reviews">
+        <span class="section-head-cn">最新评测</span>
+        <span class="section-head-en">Reviews</span>
+        <span class="section-head-rule"></span>
+      </div>
+      <div class="rev-list">
+
+        <a href="runaway-airport-warning.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score danger">2.0</span>
+            <div class="rev-score-bar" style="--w:20%"><div style="width:20%;height:100%;background:#dc2626;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-red">避坑</span><span class="rev-date">2026-05-27</span></div>
+            <span class="rev-title-link">【避坑】某新晋"一元机场"光速跑路全纪录</span>
+            <div class="rev-desc">便宜没好货，再次印证了这个不变的真理。</div>
+          </div>
+        </a>
+
+        <a href="review-flyingbird.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score">9.4</span>
+            <div class="rev-score-bar"><div style="width:94%;height:100%;background:#1a1a1a;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-dark">稳定专线</span><span class="rev-date">2026-03-12</span></div>
+            <span class="rev-title-link">飞鸟机场 (FlyingBird) 深度评测：全线 IEPL 专线的极速标杆</span>
+            <div class="rev-desc">晚高峰 4K 视频秒开！全协议支持，提供多端定制客户端，追求低延迟体验的不二之选。</div>
+          </div>
+        </a>
+
+        <a href="review-glados.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score">9.3</span>
+            <div class="rev-score-bar"><div style="width:93%;height:100%;background:#1a1a1a;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-dark">老牌学术</span><span class="rev-date">2026-02-18</span></div>
+            <span class="rev-title-link">GlaDOS 机场深度评测：稳定运营近十年的学术与极客传奇</span>
+            <div class="rev-desc">支持 WireGuard 协议，专为学生与科研人员提供免费优惠，纯净度与安全性的终极代表。</div>
+          </div>
+        </a>
+
+        <a href="review-siliconflow.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score">9.6</span>
+            <div class="rev-score-bar"><div style="width:96%;height:100%;background:#1a1a1a;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-muted">性价比</span><span class="rev-date">2026-05-24</span></div>
+            <span class="rev-title-link">硅基流动 (SiliconFlow) 深度评测：国产开源大模型托管天花板</span>
+            <div class="rev-desc">实测 TTFB 延迟仅 45ms！开源模型官方直连，100% 显卡保真无套路。</div>
+          </div>
+        </a>
+
+        <a href="review-fourks.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score">9.5</span>
+            <div class="rev-score-bar"><div style="width:95%;height:100%;background:#1a1a1a;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-blue">稳定性</span><span class="rev-date">2026-05-24</span></div>
+            <span class="rev-title-link">4ksAPI 深度评测：稳定运行超两年的老牌中转网关标杆</span>
+            <div class="rev-desc">上游稳定、支持微信/支付宝充值与正规增值税开票，高校与开发者的省心首选。</div>
+          </div>
+        </a>
+
+        <a href="review-ssrdog.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score">9.2</span>
+            <div class="rev-score-bar"><div style="width:92%;height:100%;background:#1a1a1a;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-dark">游戏加速</span><span class="rev-date">2026-04-05</span></div>
+            <span class="rev-title-link">SSRDOG 机场深度评测：全自建中转骨干网的低延迟电竞标杆</span>
+            <div class="rev-desc">多协议完美支持，低延迟游戏节点深度调优，追求顺畅联机体验的玩家首选。</div>
+          </div>
+        </a>
+
+        <a href="review-shunyun.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score">8.9</span>
+            <div class="rev-score-bar"><div style="width:89%;height:100%;background:#1a1a1a;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-dark">综合推荐</span><span class="rev-date">2026-05-16</span></div>
+            <span class="rev-title-link">瞬云机场深度评测</span>
+            <div class="rev-desc">近期实测的一匹黑马，IPLC 专线质量扎实且月付门槛低。预算有限又不想在高峰期忍受转圈缓冲的极具性价比选择。</div>
+          </div>
+        </a>
+
+        <a href="review-nexitally.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score">9.3</span>
+            <div class="rev-score-bar"><div style="width:93%;height:100%;background:#1a1a1a;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-dark">顶级专线</span><span class="rev-date">2025-11-22</span></div>
+            <span class="rev-title-link">Nexitally (奶昔) 评测</span>
+            <div class="rev-desc">圈内公认的顶级大厂，除了贵几乎没有缺点。适合预算充足的极致体验追求者。</div>
+          </div>
+        </a>
+
+        <a href="review-wgetcloud.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score">9.1</span>
+            <div class="rev-score-bar"><div style="width:91%;height:100%;background:#1a1a1a;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-dark">综合推荐</span><span class="rev-date">2025-06-06</span></div>
+            <span class="rev-title-link">WgetCloud</span>
+            <div class="rev-desc">我目前使用最久的主力机场。IEPL 专线，晚高峰 4K 秒开。价格偏中上，但在这个鱼龙混杂的圈子里，花钱买安心绝对值得。</div>
+          </div>
+        </a>
+
+        <a href="review-huanyuyun.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score">8.4</span>
+            <div class="rev-score-bar"><div style="width:84%;height:100%;background:#1a1a1a;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-blue">稳定性</span><span class="rev-date">2026-05-16</span></div>
+            <span class="rev-title-link">寰宇云</span>
+            <div class="rev-desc">重度 Netflix/Disney+ 玩家，或有特殊小众地区节点需求，这家 BGP 中转提供 20+ 国家和地区的稳定解锁支持。</div>
+          </div>
+        </a>
+
+        <a href="review-amytelecom.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score">8.5</span>
+            <div class="rev-score-bar"><div style="width:85%;height:100%;background:#1a1a1a;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-blue">稳定性</span><span class="rev-date">2025-07-11</span></div>
+            <span class="rev-title-link">AmyTelecom 评测</span>
+            <div class="rev-desc">技术流团队运营，不屑于搞营销，全靠口碑相传的老牌劲旅。</div>
+          </div>
+        </a>
+
+        <a href="review-ytoo.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score">8.8</span>
+            <div class="rev-score-bar"><div style="width:88%;height:100%;background:#1a1a1a;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-dark">综合推荐</span><span class="rev-date">2024-09-13</span></div>
+            <span class="rev-title-link">Ytoo (歪兔) 评测</span>
+            <div class="rev-desc">日韩节点爱好者的福音，流媒体解锁全绿的实力派中坚力量。</div>
+          </div>
+        </a>
+
+        <a href="review-flowercloud.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score">8.6</span>
+            <div class="rev-score-bar"><div style="width:86%;height:100%;background:#1a1a1a;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-muted">性价比</span><span class="rev-date">2025-02-14</span></div>
+            <span class="rev-title-link">FlowerCloud (花云) 评测</span>
+            <div class="rev-desc">界面好看，节点靠谱，中杯价位买到大杯体验的代表之一。</div>
+          </div>
+        </a>
+
+        <a href="review-tag.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score">8.7</span>
+            <div class="rev-score-bar"><div style="width:87%;height:100%;background:#1a1a1a;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-dark">冷门覆盖</span><span class="rev-date">2024-09-13</span></div>
+            <span class="rev-title-link">TAG 机场评测</span>
+            <div class="rev-desc">拥有极其变态的全球节点覆盖率，你能在地球上找到的国家它几乎都有节点。</div>
+          </div>
+        </a>
+
+        <a href="review-bywave.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score">8.7</span>
+            <div class="rev-score-bar"><div style="width:87%;height:100%;background:#1a1a1a;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-muted">性价比</span><span class="rev-date">2023-11-14</span></div>
+            <span class="rev-title-link">ByWave</span>
+            <div class="rev-desc">几乎不做营销的老牌机场，节点不花哨但 IPLC 专线极其稳定。适合不喜欢折腾的长期主义者。</div>
+          </div>
+        </a>
+
+        <a href="review-1yuan.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score danger">3.5</span>
+            <div class="rev-score-bar"><div style="width:35%;height:100%;background:#dc2626;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-red">避坑指南</span><span class="rev-date">2023-10-30</span></div>
+            <span class="rev-title-link">一元机场 / 便宜机场避坑</span>
+            <div class="rev-desc">买的永远没有卖的精，不要试图在机场圈子里寻找慈善家。</div>
+          </div>
+        </a>
+
+        <a href="review-cheap.html" class="rev-item">
+          <div class="rev-score-wrap">
+            <span class="rev-score danger">5.5</span>
+            <div class="rev-score-bar"><div style="width:55%;height:100%;background:#dc2626;position:absolute;left:0;top:0;"></div></div>
+          </div>
+          <div>
+            <div class="rev-meta-row"><span class="rev-tag tag-red">避坑指南</span><span class="rev-date">2023-03-26</span></div>
+            <span class="rev-title-link">9.9 元低价机场测评</span>
+            <div class="rev-desc">别被"9.9元1000G"的噱头骗了。深入揭秘低价机场的超售套路与晚高峰断流真相。</div>
+          </div>
+        </a>
+
+      </div><!-- /rev-list -->
+
+      <!-- Tutorials -->
+      <div class="tut-section">
+        <div class="section-head" id="tutorials">
+          <span class="section-head-cn">配置教程</span>
+          <span class="section-head-en">Tutorials</span>
+          <span class="section-head-rule"></span>
+        </div>
+        <div class="tut-grid">
+          <a href="tutorial-shadowrocket.html" class="tut-item"><div class="tut-plat">iOS</div><div class="tut-name">Shadowrocket 小火箭 →</div></a>
+          <a href="tutorial-quantumultx.html" class="tut-item"><div class="tut-plat">iOS 进阶</div><div class="tut-name">Quantumult X →</div></a>
+          <a href="shadowrocket-advanced.html" class="tut-item"><div class="tut-plat">iOS</div><div class="tut-name">Shadowrocket 高级分流配置 →</div></a>
+          <a href="tutorial-singbox-android.html" class="tut-item"><div class="tut-plat">Android</div><div class="tut-name">sing-box →</div></a>
+          <a href="tutorial-clash-win.html" class="tut-item"><div class="tut-plat">Windows</div><div class="tut-name">Clash for Windows →</div></a>
+          <a href="tutorial-v2rayn.html" class="tut-item"><div class="tut-plat">Windows</div><div class="tut-name">v2rayN →</div></a>
+          <a href="tutorial-clashx-mac.html" class="tut-item"><div class="tut-plat">macOS</div><div class="tut-name">ClashX / ClashX Pro →</div></a>
+          <a href="tutorial-v2rayu.html" class="tut-item"><div class="tut-plat">macOS</div><div class="tut-name">V2RayU →</div></a>
+          <a href="tutorial-mihomo-router.html" class="tut-item"><div class="tut-plat">路由器</div><div class="tut-name">OpenWrt + Mihomo 旁路由 →</div></a>
+          <a href="tutorial-cursor.html" class="tut-item"><div class="tut-plat">Cursor</div><div class="tut-name">Cursor 接入中转 API →</div></a>
+          <a href="save-battery-clash-shadowrocket.html" class="tut-item"><div class="tut-plat">实用</div><div class="tut-name">Clash/Shadowrocket 省电分流 →</div></a>
+          <a href="openai-ban-recovery.html" class="tut-item"><div class="tut-plat">防封</div><div class="tut-name">被 OpenAI 封号后怎么办 →</div></a>
+        </div>
+      </div>
+
+      <!-- Knowledge -->
+      <div class="tut-section">
+        <div class="section-head" id="knowledge">
+          <span class="section-head-cn">行业科普</span>
+          <span class="section-head-en">Knowledge</span>
+          <span class="section-head-rule"></span>
+        </div>
+        <div class="tut-grid">
+          <a href="article-iepl-iplc.html" class="tut-item"><div class="tut-plat">行业科普</div><div class="tut-name">IEPL、IPLC、BGP中转有什么区别？ →</div></a>
+          <a href="2026-proxy-protocols-seo.html" class="tut-item"><div class="tut-plat">技术科普</div><div class="tut-name">2026年主流代理协议全解析 →</div></a>
+          <a href="streaming-unlock-explained-2026.html" class="tut-item"><div class="tut-plat">原理科普</div><div class="tut-name">为什么节点看不了 Netflix？ →</div></a>
+          <a href="relay-vs-iplc-2026.html" class="tut-item"><div class="tut-plat">选购科普</div><div class="tut-name">中转 vs 专线：价格差还值得吗？ →</div></a>
+          <a href="2026-ai-unlock-guide.html" class="tut-item"><div class="tut-plat">AI科普</div><div class="tut-name">稳定解锁 ChatGPT/Claude 终极指南 →</div></a>
+          <a href="2026-gaming-proxy-guide.html" class="tut-item"><div class="tut-plat">游戏</div><div class="tut-name">2026 游戏加速器选购全攻略 →</div></a>
+          <a href="article-chaoshou.html" class="tut-item"><div class="tut-plat">行业杂谈</div><div class="tut-name">机场晚高峰卡顿真相：超售产业链 →</div></a>
+          <a href="article-self-host.html" class="tut-item"><div class="tut-plat">行业科普</div><div class="tut-name">自建节点 vs 买机场哪个更安全？ →</div></a>
+          <a href="2026-router-guide-seo.html" class="tut-item"><div class="tut-plat">硬件</div><div class="tut-name">翻墙路由器选购：软路由vs硬路由 →</div></a>
+          <a href="airport-runaway-warning-june.html" class="tut-item"><div class="tut-plat">避坑</div><div class="tut-name">【预警】这几类机场可能撑不过这个月 →</div></a>
+          <a href="article-yunnan-gateway.html" class="tut-item"><div class="tut-plat">行业观察</div><div class="tut-name">云南出境陆缆 9Tbps 能拯救晚高峰吗？ →</div></a>
+          <a href="how-to-read-speedtest-seo.html" class="tut-item"><div class="tut-plat">防骗</div><div class="tut-name">如何通过测速图判断机场真实质量 →</div></a>
+          <a href="2026-crypto-payment-safety.html" class="tut-item"><div class="tut-plat">安全</div><div class="tut-name">机场支付安全：如何防止被骗 →</div></a>
+          <a href="sora-bandwidth-impact-2026.html" class="tut-item"><div class="tut-plat">AI风向</div><div class="tut-name">为什么机场流量突然像流水一样不够用 →</div></a>
+          <a href="ecommerce-tiktok-proxy-2026.html" class="tut-item"><div class="tut-plat">跨境电商</div><div class="tut-name">企业TikTok专线怎么选？ →</div></a>
+          <a href="2026-h2-guide.html" class="tut-item"><div class="tut-plat">行业</div><div class="tut-name">2026下半年科学上网求生指南 →</div></a>
+        </div>
+      </div>
+
+    </div><!-- /col-main -->
+
+    <!-- Sidebar -->
+    <aside class="col-side" id="about">
+
+      <div class="side-block">
+        <div class="side-title">关于博主</div>
+        <p class="side-about">资深摇滚歌迷，坐标华东。讨厌一切花里胡哨的营销。写评测是为了自己备忘，也是为了在这个充满恰饭广告的圈子里留一片干净的自留地。</p>
+      </div>
+
+      <div class="side-block">
+        <div class="side-title">全部评测</div>
+        <ul class="side-list">
+          <li><a href="review-flyingbird.html">飞鸟 FlyingBird</a></li>
+          <li><a href="review-glados.html">GlaDOS</a></li>
+          <li><a href="review-siliconflow.html">硅基流动</a></li>
+          <li><a href="review-fourks.html">4ksAPI</a></li>
+          <li><a href="review-ssrdog.html">SSRDOG</a></li>
+          <li><a href="review-nexitally.html">Nexitally 奶昔</a></li>
+          <li><a href="review-wgetcloud.html">WgetCloud</a></li>
+          <li><a href="review-shunyun.html">瞬云</a></li>
+          <li><a href="review-huanyuyun.html">寰宇云</a></li>
+          <li><a href="review-tag.html">TAG 机场</a></li>
+          <li><a href="review-amytelecom.html">AmyTelecom</a></li>
+          <li><a href="review-ytoo.html">Ytoo 歪兔</a></li>
+          <li><a href="review-flowercloud.html">FlowerCloud 花云</a></li>
+          <li><a href="review-bywave.html">ByWave</a></li>
+          <li><a href="review-kycloud.html">Kycloud</a></li>
+          <li><a href="review-rixcloud.html">RixCloud</a></li>
+          <li><a href="review-mdss.html">MDSS</a></li>
+          <li><a href="review-immtelecom.html">ImmTelecom</a></li>
+          <li><a href="review-kuromis.html">Kuromis</a></li>
+          <li><a href="review-cheap.html">9.9 元低价机场</a></li>
+          <li><a href="review-1yuan.html">一元机场避坑</a></li>
+          <li><a href="runaway-airport-warning.html">跑路机场纪录</a></li>
+        </ul>
+      </div>
+
+      <div class="side-block">
+        <div class="side-title">免责声明</div>
+        <p class="side-disclaimer">本站测速仅代表测试当时的网络环境。购买任何服务请按月付起步，警惕年付跑路风险。</p>
+      </div>
+
+    </aside>
+  </div><!-- /two-col -->
+
+</div><!-- /page -->
+
+<footer class="footer">
+  <div class="footer-brand">big博客</div>
+  <div class="footer-note">独立评测 · 不恰饭 · 2026</div>
+  <a href="/" class="footer-back">↑ 回到顶部</a>
 </footer>
+
 </body>
 </html>
-
