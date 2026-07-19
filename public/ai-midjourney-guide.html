@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midjourney国内用户完整使用指南：注册、出图、订阅省钱技巧 · big博客</title>
+<meta name="description" content="2026年国内用户使用Midjourney完整教程：Discord注册、首张AI图生成、四档订阅方案对比，以及让订阅费用减半的实用省钱策略。">
+<link rel="canonical" href="https://bigjichang.com/ai-midjourney-guide">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans SC',sans-serif;background:#fffef9;color:#1a1a1a;font-size:15px;line-height:1.75}
+a{color:inherit;text-decoration:none}
+.masthead{border-bottom:4px solid #1a1a1a;border-top:4px solid #1a1a1a;padding:6px 0;background:#fffef9;position:sticky;top:0;z-index:100}
+.masthead-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.masthead-logo{font-family:'Noto Serif SC',serif;font-size:1.4rem;font-weight:900;letter-spacing:-1px;line-height:1}
+.masthead-logo sup{font-family:'IBM Plex Mono',monospace;font-size:0.45rem;color:#dc2626;letter-spacing:2px;vertical-align:super;font-weight:500;text-transform:uppercase;margin-left:4px}
+.masthead-back{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;color:#888}
+article{max-width:720px;margin:0 auto;padding:48px 32px 80px}
+.art-eyebrow{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;align-items:center}
+.rev-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;font-weight:500;border:1px solid currentColor}
+.tag-dark{color:#1a1a1a}
+.tag-red{color:#dc2626}
+.tag-muted{color:#888}
+.tag-blue{color:#1d4ed8}
+.art-date{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#bbb}
+.art-title{font-family:'Noto Serif SC',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;letter-spacing:-1px;line-height:1.2;margin-bottom:8px}
+.art-subtitle{font-size:15px;color:#888;margin-bottom:28px}
+h2{font-family:'Noto Serif SC',serif;font-size:1.05rem;font-weight:700;margin:40px 0 14px;padding-top:40px;border-top:2px solid #1a1a1a}
+h2:first-of-type{margin-top:0;padding-top:0;border-top:none}
+p{font-size:15px;color:#333;line-height:1.9;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+thead tr{border-bottom:2px solid #1a1a1a}
+tbody tr{border-bottom:1px solid #e0e0d8}
+th{font-family:'IBM Plex Mono',monospace;font-weight:700;text-align:left;padding:10px 12px 10px 0;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+td{padding:12px 12px 12px 0;color:#444}
+td:first-child{font-weight:600;color:#1a1a1a}
+ul{margin:12px 0 16px 20px;color:#555;font-size:14px;line-height:2}
+.verdict{background:#fff;border:1px solid #e0e0d8;border-left:3px solid #1a1a1a;padding:22px 24px;margin:28px 0}
+.verdict-title{font-family:'IBM Plex Mono',monospace;font-weight:700;margin-bottom:12px;font-size:14px;letter-spacing:1px;text-transform:uppercase}
+.verdict-row{display:flex;gap:10px;margin-bottom:8px;font-size:14px;color:#555;align-items:flex-start}
+.lyric-block{background:#1a1a1a;color:#f7f6f2;padding:22px 24px;margin:32px 0;font-size:14px;line-height:1.9;font-weight:300;border-left:4px solid #dc2626}
+.lyric-block cite{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#666;display:block;margin-top:8px;letter-spacing:1px}
+.tip{background:#fff;border:1px solid #e0e0d8;border-left:3px solid #1a1a1a;padding:14px 18px;margin:18px 0;font-size:13px;color:#555;line-height:1.8}
+.warn{background:#fffbf0;border:1px solid #f0e0a0;border-left:3px solid #d4a017;padding:14px 18px;margin:18px 0;font-size:13px;color:#666;line-height:1.8}
+.other-tuts{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:16px}
+.tut-link{border:1px solid #e0e0d8;margin:-1px 0 0 -1px;padding:16px 18px;background:#fff;font-size:13px;display:block;position:relative}
+.tut-link:hover{box-shadow:inset 3px 3px 0 #1a1a1a;z-index:1}
+.tut-link-plat{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#dc2626;margin-bottom:4px;letter-spacing:1px;text-transform:uppercase}
+.art-footer{border-top:4px solid #1a1a1a;border-bottom:4px solid #1a1a1a;margin-top:60px;padding:18px 32px;max-width:860px;margin-left:auto;margin-right:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.art-footer-brand{font-family:'Noto Serif SC',serif;font-weight:900;font-size:0.95rem}
+.art-footer-note{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#aaa;letter-spacing:1px}
+.art-footer-back{font-size:12px;color:#888}
+@media(max-width:640px){article{padding:32px 18px 60px}.other-tuts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <a href="/" class="masthead-logo">big博客<sup>indie</sup></a>
+    <a href="/" class="masthead-back">← 返回首页</a>
+  </div>
+</header>
+
+<main>
+<article>
+
+  <div class="art-eyebrow">
+    <span class="rev-tag tag-dark">MIDJOURNEY</span>
+    <span class="rev-tag tag-muted">AI绘图</span>
+    <span class="art-date">2026-07-16</span>
+  </div>
+
+  <h1 class="art-title">Midjourney国内用户完整使用指南：注册、出图、订阅省钱技巧</h1>
+  <p class="art-subtitle">从Discord注册到第一张图，再到省着用不超支的完整路径</p>
+
+  <h2>Midjourney是什么，为什么它还值得用</h2>
+  <p>在AI绘图这条赛道上，Midjourney依然是2026年最受专业设计师和创意人信赖的工具之一。它不靠开源模型堆砌，而是由一支精小的独立团队持续打磨，生成风格具有强烈的辨识度——光影层次丰富、构图克制、细节密度高。无论是商业插画、概念原画、品牌视觉，还是个人创作探索，它都有独到之处。</p>
+  <p>对国内用户来说，使用Midjourney有两道门槛：一是需要科学上网，二是整个服务架构在Discord之上，初次接触会觉得绕。本文把这两个问题一并拆解，带你从零走完注册、生图、订阅和省钱的完整流程。</p>
+
+  <div class="warn">国内使用Midjourney需要全程稳定的国际网络连接。建议使用延迟低于100ms的节点，否则Discord加载缓慢，图片生成指令容易超时。</div>
+
+  <h2>第一步：注册Discord账号</h2>
+  <p>Midjourney没有独立客户端，所有交互都通过Discord进行。如果你还没有Discord账号，先去 discord.com 完成注册。建议使用Gmail或Outlook邮箱，QQ邮箱有时会收不到验证邮件。</p>
+  <p>注册流程：打开discord.com，点击「Register」，填写用户名、邮箱和密码，完成邮件验证。验证完成后，Discord会引导你创建或加入服务器，这一步可以跳过，直接进入下一步。</p>
+
+  <div class="tip">Discord用户名建议使用英文加数字组合，避免使用特殊字符，后续和Bot交互时更顺畅。账号注册完成后，先在设置里开启双重验证（2FA），防止账号被盗用。</div>
+
+  <p>账号注册好之后，前往 midjourney.com，点击右下角「Sign In」，用Discord账号授权登录。首次登录会跳转回Discord，并自动将你加入Midjourney官方服务器。</p>
+
+  <h2>第二步：在Discord里生成第一张图</h2>
+  <p>进入Midjourney官方Discord服务器后，左侧频道列表会看到若干「#newbies-」开头的频道，这些是新手公共频道。点击任意一个进入，在底部输入框输入 <code>/imagine</code>，Discord会自动弹出指令补全，选择 <code>/imagine prompt</code>，然后在 prompt 后面输入你的描述词，回车发送。</p>
+  <p>例如：<code>/imagine prompt a misty mountain village at dawn, ink wash painting style, soft morning light, highly detailed</code></p>
+  <p>发送后，Midjourney Bot会在频道中回复一条消息，先显示进度条，大约30到60秒后生成一组4张预览图。图片下方有U1-U4（放大单张）和V1-V4（基于某张变体衍生）两排按钮，U是Upscale的缩写，点击即可获得高分辨率单图。</p>
+
+  <div class="tip">公共频道里所有人的生成结果都公开可见，如果想私密生图，需要订阅Standard或Pro以上方案，并在个人DM频道与Midjourney Bot对话。</div>
+
+  <h2>核心指令速查</h2>
+  <p>掌握以下几条指令，能覆盖90%的日常使用场景：</p>
+  <ul>
+    <li><strong>/imagine prompt [描述]</strong> — 文字生图，最基础的指令</li>
+    <li><strong>/settings</strong> — 打开设置面板，切换模型版本、画质、风格化强度</li>
+    <li><strong>/info</strong> — 查看当前账号的剩余GPU时间和订阅状态</li>
+    <li><strong>/blend</strong> — 上传2到5张图片，融合风格生成新图</li>
+    <li><strong>/describe</strong> — 上传一张图，让AI反推可能的Prompt描述</li>
+    <li><strong>/prefer option set</strong> — 保存常用参数组合，避免每次重复输入</li>
+    <li><strong>--ar 16:9</strong> — 指定画幅比例，支持任意比例</li>
+    <li><strong>--style raw</strong> — 关闭Midjourney默认美化，输出更接近Prompt原意</li>
+    <li><strong>--no [元素]</strong> — 排除不想要的内容，例如 --no text, watermark</li>
+    <li><strong>--seed [数字]</strong> — 锁定随机种子，便于复现或微调结果</li>
+  </ul>
+
+  <h2>订阅方案对比</h2>
+  <p>Midjourney提供四档订阅，按月或按年计费，年付享八折优惠。以下是2026年现行价格和核心参数对比（月付价格）：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>方案</th>
+        <th>月费（月付）</th>
+        <th>月费（年付）</th>
+        <th>Fast GPU时间</th>
+        <th>Relax模式</th>
+        <th>私密生图</th>
+        <th>并发任务数</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Basic</td>
+        <td>$10</td>
+        <td>$8</td>
+        <td>3.3小时/月</td>
+        <td>无</td>
+        <td>无</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>Standard</td>
+        <td>$30</td>
+        <td>$24</td>
+        <td>15小时/月</td>
+        <td>无限</td>
+        <td>无</td>
+        <td>3（+Relax队列）</td>
+      </tr>
+      <tr>
+        <td>Pro</td>
+        <td>$60</td>
+        <td>$48</td>
+        <td>30小时/月</td>
+        <td>无限</td>
+        <td>有（隐身模式）</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>Mega</td>
+        <td>$120</td>
+        <td>$96</td>
+        <td>60小时/月</td>
+        <td>无限</td>
+        <td>有（隐身模式）</td>
+        <td>12</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>对于大多数个人用户，<strong>Standard方案</strong>是性价比最高的选择：Relax模式无限生图（速度稍慢，无队列压力），Fast时间够应对突发需求，月付$30折合人民币约220元左右。Basic方案3.3小时Fast时间非常有限，不建议作为主力订阅。</p>
+
+  <div class="lyric-block">
+    没有什么能够阻挡，你对自由的向往<br>
+    天马行空的生涯，你的心了无牵挂
+    <cite>— 许巍《蓝莲花》</cite>
+  </div>
+
+  <h2>Fast模式和Relax模式的区别</h2>
+  <p>这是理解Midjourney订阅价值的关键。<strong>Fast模式</strong>使用专用GPU资源，任务立即进入队列，通常30到60秒出图。Fast时间是每月配额制，用完即止，追加购买按$4/小时计费。</p>
+  <p><strong>Relax模式</strong>（Standard及以上）使用空闲GPU资源，排队时间从几十秒到几分钟不等，高峰期可能更长，但不消耗Fast配额，相当于无限生图。对于不赶时间的探索性创作，Relax模式完全够用。</p>
+  <p><strong>Turbo模式</strong>（Pro/Mega）速度是Fast的两倍，但消耗两倍Fast时间，适合需要快速迭代的专业场景。</p>
+
+  <div class="tip">在/settings里把默认模式设为Relax，只在需要快速出结果时手动切到Fast。这一个习惯能把Fast配额的有效使用周期延长2到3倍。</div>
+
+  <h2>省钱技巧：让订阅费用减半</h2>
+  <p>Midjourney的订阅费用对国内用户不算便宜，但有几个经过验证的方法能显著降低实际成本。</p>
+  <p><strong>1. 年付立省20%。</strong>如果你确定会持续使用超过三个月，直接年付，Standard年付$288比月付$360便宜了$72，相当于免费多用两个多月。</p>
+  <p><strong>2. 用Relax模式打底，Fast只做精修。</strong>大多数创意探索不需要Fast速度，Relax完全够。把Fast时间留给最终稿的Upscale和微调变体，而不是前期大量测试Prompt。</p>
+  <p><strong>3. 善用/prefer option set保存Prompt片段。</strong>固定风格关键词、常用参数（如--ar、--style、--q）保存成一个option，每次生图只需调用，减少反复试验次数，节省GPU时间。</p>
+  <p><strong>4. 按需升降级，不要长期持有高档方案。</strong>接到大项目时升到Pro，项目结束立即降回Standard。Midjourney支持在当前计费周期结束时自动降级，不会浪费已付费用。</p>
+  <p><strong>5. 用/describe反推参考图的Prompt，再二次创作。</strong>这比从零摸索Prompt效率高得多，能大幅减少无效生图消耗。</p>
+  <p><strong>6. 充分利用Vary Region（局部重绘）。</strong>当一张图整体满意但局部有瑕疵时，用Vary Region只重绘问题区域，而不是整张图重新生成，节省Fast时间。</p>
+
+  <div class="warn">Midjourney不支持退款，订阅后当月费用不可退还。建议先以月付方式试用一两个月，确认使用习惯后再考虑年付锁定优惠。</div>
+
+  <h2>国内支付方式</h2>
+  <p>Midjourney只接受国际信用卡（Visa、Mastercard、American Express）和部分虚拟卡。国内用户常用的方案有：招商银行或工商银行的全币种信用卡（Visa/Mastercard通道）、Depay或Wise虚拟卡、或通过家人在海外的信用卡代付。</p>
+  <p>支付宝和微信支付目前不被直接支持。如果你有美区Apple ID，可以通过App Store的礼品卡充值后订阅iOS版，但Midjourney暂无独立App，此路不通。最稳妥的方案是申请一张支持国际支付的双币信用卡。</p>
+
+  <div class="tip">Depay等虚拟卡开卡需要KYC实名认证，充值需要USDT，整体流程对新手有一定门槛。如果只是想试用，建议先向有境外卡的朋友借刷，再决定是否自己办卡。</div>
+
+  <h2>常见问题排查</h2>
+  <p><strong>Discord频道刷新慢、图片加载不出来：</strong>多半是节点问题，换一个延迟更低的节点，或切换到全局代理模式。</p>
+  <p><strong>/imagine指令无响应：</strong>确认Bot是否在当前频道激活，可以输入 @Midjourney Bot 测试。公共服务器高峰期Bot偶尔会积压，稍等片刻重试。</p>
+  <p><strong>生成图片被内容过滤拦截：</strong>Midjourney对部分关键词有屏蔽机制，调整描述方式，避免使用被标记的词汇，换成更迂回的表达通常能绕过。</p>
+  <p><strong>Fast时间提前耗尽：</strong>先检查/info确认剩余时间，切换到Relax模式继续使用，等下个计费周期重置，或按$4/小时追购Fast时间。</p>
+  <p><strong>Upscale后图片分辨率不够用：</strong>使用Upscale (2x)或Upscale (4x)获得更高分辨率版本，Pro方案支持更高倍率放大。</p>
+
+  <div class="verdict">
+    <div class="verdict-title">综合评价</div>
+    <div class="verdict-row"><span>+</span><span>生成风格成熟、有辨识度，商业可用质量稳定</span></div>
+    <div class="verdict-row"><span>+</span><span>Relax模式让Standard方案具备极高性价比</span></div>
+    <div class="verdict-row"><span>+</span><span>版本迭代持续，V6之后写实和艺术风格均大幅提升</span></div>
+    <div class="verdict-row"><span>+</span><span>/describe和/blend等辅助指令显著降低创作门槛</span></div>
+    <div class="verdict-row"><span>–</span><span>依赖Discord，界面对新手不够直觉，学习曲线陡</span></div>
+    <div class="verdict-row"><span>–</span><span>国内访问需稳定科学上网，支付方式有门槛</span></div>
+    <div class="verdict-row"><span>–</span><span>文字渲染仍是弱项，图中嵌入中文字体效果较差</span></div>
+    <div class="verdict-row"><span>–</span><span>对生成内容的精确控制不如Stable Diffusion自由</span></div>
+  </div>
+
+  <h2>相关阅读</h2>
+  <div class="other-tuts">
+    <a href="ai-claude-vs-chatgpt-2026.html" class="tut-link">
+      <div class="tut-link-plat">AI对比</div>
+      Claude vs ChatGPT 2026：哪个更适合你的日常工作流
+    </a>
+    <a href="ai-tools-overview-2026.html" class="tut-link">
+      <div class="tut-link-plat">AI工具</div>
+      2026年AI工具全景：从生产力到创意的完整地图
+    </a>
+    <a href="social-twitter-x-guide.html" class="tut-link">
+      <div class="tut-link-plat">社交媒体</div>
+      Twitter/X国内使用指南：注册、访问与内容策略
+    </a>
+    <a href="2026-ai-unlock-guide.html" class="tut-link">
+      <div class="tut-link-plat">网络访问</div>
+      2026年AI服务解锁指南：稳定访问ChatGPT等工具
+    </a>
+    <a href="streaming-netflix-2026.html" class="tut-link">
+      <div class="tut-link-plat">流媒体</div>
+      Netflix国内观看完整指南：账号、订阅与最佳节点
+    </a>
+  </div>
+
+</article>
+</main>
+
+<footer class="art-footer">
+  <div class="art-footer-brand">big博客</div>
+  <div class="art-footer-note">INDEPENDENT · 2026</div>
+  <a href="/" class="art-footer-back">← 返回首页</a>
+</footer>
+
+</body>
+</html>
