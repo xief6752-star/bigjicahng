@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shadowrocket 使用教程 · 逼哥机场</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans SC', sans-serif; background: #f7f6f2; color: #1a1a1a; font-size: 15px; line-height: 1.7; }
+a { color: inherit; text-decoration: none; }
+nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; border-bottom: 1px solid #e0ddd5; background: #f7f6f2; position: sticky; top: 0; z-index: 10; }
+.nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; }
+.nav-logo span { color: #888; font-weight: 400; margin-left: 8px; font-size: 12px; }
+.nav-back { font-size: 13px; color: #888; } .nav-back:hover { color: #1a1a1a; }
+.article { max-width: 720px; margin: 0 auto; padding: 56px 48px 80px; }
+.art-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.plat-badge { font-family: 'IBM Plex Mono', monospace; font-size: 11px; background: #6b3a2a; color: #fff; padding: 3px 10px; border-radius: 3px; }
+.art-date { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb; }
+.art-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -1px; line-height: 1.25; margin-bottom: 18px; }
+.art-lead { font-size: 15px; color: #555; line-height: 1.9; border-left: 3px solid #1a1a1a; padding-left: 18px; margin-bottom: 40px; }
+h2 { font-size: 1.1rem; font-weight: 700; margin: 40px 0 14px; padding-top: 40px; border-top: 1px solid #e0ddd5; }
+h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+p { font-size: 15px; color: #333; line-height: 1.9; margin-bottom: 14px; }
+.steps { display: flex; flex-direction: column; counter-reset: step; }
+.step { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid #e0ddd5; counter-increment: step; }
+.step:last-child { border-bottom: none; }
+.step-num { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb; min-width: 28px; margin-top: 2px; }
+.step-num::before { content: "0" counter(step); }
+.step-title { font-weight: 700; margin-bottom: 6px; }
+.step-desc { font-size: 14px; color: #555; line-height: 1.8; }
+.tip { background: #fff; border: 1px solid #e0ddd5; border-left: 3px solid #1a1a1a; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #555; line-height: 1.8; }
+.tip strong { color: #1a1a1a; }
+.warn { background: #fffbf0; border: 1px solid #f0e0a0; border-left: 3px solid #d4a017; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #666; line-height: 1.8; }
+.other-tuts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+.tut-link { border: 1px solid #e0ddd5; border-radius: 8px; padding: 16px 18px; background: #fff; font-size: 13px; transition: border-color .2s; }
+.tut-link:hover { border-color: #aaa; }
+.tut-link-plat { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #aaa; margin-bottom: 4px; }
+.tut-link-name { font-weight: 700; }
+@media (max-width: 640px) { nav { padding: 16px 20px; } .article { padding: 36px 20px 60px; } .other-tuts { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">逼哥机场<span>使用教程</span></div>
+  <a class="nav-back" href="index.html">← 返回首页</a>
+</nav>
+<article class="article">
+  <div class="art-eyebrow">
+    <span class="plat-badge">iOS</span>
+    <span class="art-date">2026-05-14 更新</span>
+  </div>
+  <h1 class="art-title">Shadowrocket（小火箭）<br>使用教程</h1>
+  <div class="art-lead">Shadowrocket 是 iOS 端使用最广泛的代理客户端，¥18 买断，支持多种协议和订阅格式。本教程从购买账号到配置完成，全程图文说明。</div>
+
+  <h2>购买 Shadowrocket</h2>
+  <div class="warn">
+    <strong>⚠️ 必须使用非大陆区 Apple ID</strong><br>
+    Shadowrocket 在中国区 App Store 已下架，需要美区/港区/台区账号才能购买和下载。如果没有，需要先注册一个或购买共享账号。
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">切换 App Store 区域</div>
+        <div class="step-desc">打开 App Store → 点击右上角头像 → 拉到底部「退出登录」→ 使用美区 Apple ID 登录。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">搜索并购买</div>
+        <div class="step-desc">搜索「Shadowrocket」，价格 $2.99（约 ¥18），一次购买终身使用。购买后可切换回国区 Apple ID，App 保留。</div>
+      </div>
+    </div>
+  </div>
+  <div class="tip"><strong>省钱方式：</strong>可以在机场面板或论坛找「美区 Apple ID 共享账号」，仅用来下载 App，下载完立即切回自己账号。切勿在共享账号里开启「查找我的 iPhone」。</div>
+
+  <h2>添加订阅链接</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">复制机场订阅链接</div>
+        <div class="step-desc">登录机场控制台，找到「订阅链接」或「一键导入」，复制适用于 Shadowrocket / SS / VMess 的链接。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">在 Shadowrocket 中添加</div>
+        <div class="step-desc">打开 Shadowrocket → 点击右上角「+」→ 类型选「Subscribe」→ 粘贴订阅链接 → 右上角「完成」。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">更新订阅</div>
+        <div class="step-desc">在订阅条目上左滑 → 点「刷新」，或下拉节点列表触发更新。建议开启自动更新（设置 → 服务器订阅 → 自动更新）。</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>选择节点 & 连接</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">选择节点</div>
+        <div class="step-desc">在节点列表中点击一个节点，左边出现对勾即为选中。可以点右上角的信号图标测速，选延迟低的。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">开启连接</div>
+        <div class="step-desc">回到首页，点击顶部的「未连接」开关 → 系统弹出 VPN 权限请求 → 允许 → 开关变绿色即为已连接。</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>代理模式说明</h2>
+  <p>首页顶部「全局路由」可切换模式：</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">代理（Proxy）—— 日常推荐</div>
+        <div class="step-desc">根据规则自动判断，国内直连、国外走代理。速度和体验最均衡。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">直连（Direct）</div>
+        <div class="step-desc">所有流量直连，不走代理，等同于关闭。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">全局（Global）</div>
+        <div class="step-desc">所有流量走代理，访问国内网站会变慢，排查问题时使用。</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>其他平台教程</h2>
+  <div class="other-tuts">
+    <a class="tut-link" href="tutorial-clash-win.html"><div class="tut-link-plat">Windows</div><div class="tut-link-name">Clash for Windows →</div></a>
+    <a class="tut-link" href="tutorial-clashx-mac.html"><div class="tut-link-plat">macOS</div><div class="tut-link-name">ClashX Pro →</div></a>
+    <a class="tut-link" href="tutorial-quantumultx.html"><div class="tut-link-plat">iOS</div><div class="tut-link-name">Quantumult X →</div></a>
+    <a class="tut-link" href="tutorial-singbox-android.html"><div class="tut-link-plat">Android</div><div class="tut-link-name">sing-box →</div></a>
+    <a class="tut-link" href="tutorial-v2rayn.html"><div class="tut-link-plat">Windows</div><div class="tut-link-name">v2rayN →</div></a>
+    <a class="tut-link" href="tutorial-mihomo-router.html"><div class="tut-link-plat">路由器</div><div class="tut-link-name">OpenWrt Mihomo →</div></a>
+  </div>
+</article>
+<footer style="max-width:720px;margin:0 auto;padding:32px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e0ddd5;flex-wrap:wrap;gap:12px;">
+  <span style="font-size:13px;color:#999;">逼哥机场评测 · <strong style="color:#555;">独立 · 无广</strong></span>
+  <a href="index.html" style="font-size:13px;color:#888;">← 返回首页</a>
+</footer>
+</body>
+</html>

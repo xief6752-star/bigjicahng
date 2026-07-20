@@ -1,0 +1,190 @@
+<%- include('header') %>
+
+<style>
+.hero { max-width: 860px; margin: 64px auto 0; padding: 0 48px 56px; border-bottom: 1px solid #e0ddd5; }
+.hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #aaa; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+.hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: #ccc; display: block; }
+.hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -1px; margin-bottom: 18px; }
+.hero h1 em { font-style: normal; color: #999; }
+.hero-quote { font-size: 14px; color: #888; font-weight: 300; border-left: 2px solid #ddd; padding-left: 16px; margin-bottom: 28px; line-height: 1.8; }
+.hero-quote cite { font-style: normal; font-size: 12px; color: #bbb; display: block; margin-top: 4px; }
+.hero-desc { font-size: 15px; color: #555; max-width: 560px; line-height: 1.9; }
+
+.ad-slots { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 36px; max-width: 640px; }
+.ad-slot { height: 90px; border: 1px dashed #d0ccc5; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 13px; text-decoration: none; transition: all .2s; background: rgba(0,0,0,0.02); font-family: 'IBM Plex Mono', monospace; overflow: hidden; position: relative; width: 100%; }
+.ad-slot:hover { border-color: #888; color: #555; background: rgba(0,0,0,0.05); }
+.ad-slot.text-ad { background: linear-gradient(45deg, #1a1a1a, #3d2c8d, #c0392b, #1a1a1a); background-size: 400% 400%; animation: gradientBG 8s ease infinite, glowBorder 2s infinite alternate; color: #fff; font-weight: 700; font-size: 16px; border: 2px solid transparent; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+@keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes glowBorder { 0% { box-shadow: 0 0 5px rgba(231, 76, 60, 0.2); border-color: rgba(231, 76, 60, 0.5); } 100% { box-shadow: 0 0 20px rgba(231, 76, 60, 0.8), inset 0 0 10px rgba(231, 76, 60, 0.5); border-color: rgba(231, 76, 60, 1); } }
+.ad-slot.text-ad::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%); transform: skewX(-25deg); animation: shine 3s infinite; }
+@keyframes shine { 0% { left: -100%; } 20% { left: 200%; } 100% { left: 200%; } }
+.ad-slot.text-ad:hover { transform: scale(1.02); box-shadow: 0 8px 25px rgba(231,76,60,0.6); color: #fff; }
+.ad-ribbon { position: absolute; top: 12px; right: -30px; background: #e74c3c; color: #fff; padding: 4px 30px; font-size: 11px; font-weight: 800; font-family: sans-serif; letter-spacing: 1px; transform: rotate(45deg); text-transform: uppercase; box-shadow: 0 2px 4px rgba(0,0,0,0.3); z-index: 10; animation: flashRibbon 1.5s infinite; pointer-events: none; }
+@keyframes flashRibbon { 0%, 100% { background: #e74c3c; color: #fff; text-shadow: none; } 50% { background: #f1c40f; color: #d35400; text-shadow: 0 0 5px rgba(255,255,255,0.8); } }
+
+.main { max-width: 860px; margin: 0 auto; padding: 0 48px; display: flex; gap: 60px; }
+.content { flex: 1; min-width: 0; padding-top: 56px; }
+.sidebar { width: 240px; padding-top: 60px; flex-shrink: 0; }
+
+.section-title { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #1a1a1a; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: #e0ddd5; }
+
+.pinned-card { background: #1a1a1a; color: #f7f6f2; border-radius: 12px; padding: 32px 36px; margin-bottom: 48px; position: relative; overflow: hidden; transition: transform .2s; display: block; }
+.pinned-card:hover { transform: translateY(-2px); }
+.pinned-tag { position: absolute; top: 0; right: 24px; background: #c0392b; font-size: 10px; font-family: 'IBM Plex Mono', monospace; padding: 4px 8px; border-radius: 0 0 4px 4px; font-weight: 500; }
+.pinned-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -.5px; }
+.pinned-desc { font-size: 14px; color: #aaa; line-height: 1.6; font-weight: 300; }
+
+.reviews { display: flex; flex-direction: column; gap: 32px; margin-bottom: 56px; }
+.rev-card { display: flex; align-items: flex-start; gap: 24px; padding-bottom: 32px; border-bottom: 1px dashed #e0ddd5; transition: opacity .2s; }
+.rev-card:hover { opacity: .7; }
+.rev-card:last-child { border-bottom: none; padding-bottom: 0; }
+.rev-score { font-family: 'IBM Plex Mono', monospace; font-size: 2.2rem; font-weight: 500; color: #1a1a1a; line-height: 1; width: 64px; flex-shrink: 0; }
+.rev-info { flex: 1; }
+.rev-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.rev-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 3px; font-weight: 500; }
+.tag-red { background: #5a1e1e; color: #fff; }
+.tag-dark { background: #3d2c8d; color: #fff; }
+.tag-brown { background: #6b3a2a; color: #fff; }
+.tag-blue { background: #1d3557; color: #fff; }
+.rev-date { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #aaa; }
+.rev-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
+.rev-desc { font-size: 14px; color: #666; line-height: 1.6; }
+
+.tuts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 48px; }
+.tut-card { border: 1px solid #e0ddd5; border-radius: 8px; padding: 20px 24px; background: #fff; transition: border-color .2s; display: block; }
+.tut-card:hover { border-color: #aaa; }
+.tut-plat { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888; margin-bottom: 8px; }
+.tut-name { font-weight: 700; font-size: 15px; color: #1a1a1a; }
+
+.widget { margin-bottom: 40px; }
+.wg-title { font-size: 12px; font-weight: 700; color: #1a1a1a; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.wg-list { list-style: none; }
+.wg-list li { margin-bottom: 12px; font-size: 13px; color: #555; }
+.wg-list li a { color: #555; border-bottom: 1px solid transparent; transition: border-color .2s; }
+.wg-list li a:hover { border-color: #555; }
+
+@media (max-width: 800px) { .main { flex-direction: column; gap: 40px; } .sidebar { width: 100%; padding-top: 0; border-top: 1px solid #e0ddd5; padding-top: 40px; } }
+@media (max-width: 640px) { .hero, .main { padding-left: 20px; padding-right: 20px; } .tuts-grid { grid-template-columns: 1fr; } .rev-card { flex-direction: column; gap: 12px; } .rev-score { font-size: 1.8rem; } .ad-slots { grid-template-columns: 1fr; } .ad-slot { height: 80px; } }
+</style>
+
+<nav>
+  <div class="nav-logo">big博客<span>独立评测</span></div>
+  <div class="nav-links">
+    <a href="#reviews">评测</a>
+    <a href="#tutorials">教程</a>
+    <a href="#knowledge">科普</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-eyebrow">Indie Reviews</div>
+  <h1><%= locals.settings ? (settings.hero_title_1 || '不接推广。') : '不接推广。' %><em><br><%= locals.settings ? (settings.hero_title_2 || '只说真话。') : '只说真话。' %></em></h1>
+  <div class="hero-quote">
+    「<%= locals.settings ? (settings.hero_quote || '世界会好吗？那些狗屁不如的青春。') : '世界会好吗？那些狗屁不如的青春。' %>」
+    <cite>—— <%= locals.settings ? (settings.hero_quote_author || '李志《这个世界会好吗》') : '李志《这个世界会好吗》' %></cite>
+  </div>
+  <p class="hero-desc"><%= locals.settings ? settings.hero_desc : '我是逼哥（李志的铁粉），这里是我自费购买、测试和长期使用的科学上网节点（机场）记录。没有恰饭，没有硬广，只有真实的速度测试和稳定的推荐。' %></p>
+  
+  <% if (locals.ads && ads.length > 0) { %>
+  <div class="ad-slots">
+    <% ads.forEach(function(ad) { %>
+    <a href="<%= ad.link %>" class="ad-slot <%= ad.image_url ? '' : 'text-ad' %>" target="_blank" title="<%= ad.title %>" style="<%= ad.image_url ? 'border: none;' : '' %>">
+      <div class="ad-ribbon">SALE</div>
+      <% if (ad.image_url) { %>
+        <img src="<%= ad.image_url %>" alt="<%= ad.title %>" style="width: 100%; height: 100%; object-fit: cover;">
+      <% } else { %>
+        <%= ad.title %>
+      <% } %>
+    </a>
+    <% }); %>
+  </div>
+  <% } else { %>
+  <div class="ad-slots">
+    <a href="#" class="ad-slot text-ad">
+      <div class="ad-ribbon">SALE</div>
+      广告位招租
+    </a>
+  </div>
+  <% } %>
+</header>
+
+<main class="main">
+  <div class="content">
+    <% if (locals.pinnedArticles && pinnedArticles.length > 0) { %>
+    <div class="section-title">置顶推荐 / Pinned</div>
+    <% pinnedArticles.forEach(function(article) { %>
+    <a href="<%= article.slug %>.html" class="pinned-card">
+      <div class="pinned-tag">UPDATED</div>
+      <div class="pinned-title"><%- article.title %></div>
+      <div class="pinned-desc"><%= article.subtitle %></div>
+    </a>
+    <% }); %>
+    <% } %>
+
+    <div class="section-title" id="reviews">最新评测 / Reviews</div>
+    <div class="reviews">
+      <% reviews.forEach(function(review) { 
+        let tagClass = 'tag-dark';
+        if (review.tag.includes('避坑')) tagClass = 'tag-red';
+        if (review.tag.includes('性价比')) tagClass = 'tag-brown';
+        if (review.tag.includes('稳定性')) tagClass = 'tag-blue';
+      %>
+      <a href="<%= review.slug %>.html" class="rev-card">
+        <div class="rev-score"><%= review.score ? review.score.toFixed(1) : '-' %></div>
+        <div class="rev-info">
+          <div class="rev-meta">
+            <span class="rev-tag <%= tagClass %>"><%= review.tag %></span>
+            <span class="rev-date"><%= review.date %></span>
+          </div>
+          <div class="rev-title"><%- review.title %></div>
+          <div class="rev-desc"><%= review.subtitle %></div>
+        </div>
+      </a>
+      <% }); %>
+    </div>
+
+    <div class="section-title" id="tutorials">配置教程 / Tutorials</div>
+    <div class="tuts-grid">
+      <% tutorials.forEach(function(tut) { %>
+      <a href="<%= tut.slug %>.html" class="tut-card">
+        <div class="tut-plat"><%= tut.tag %></div>
+        <div class="tut-name"><%- tut.title %> →</div>
+      </a>
+      <% }); %>
+    </div>
+
+    <% if (locals.knowledges && knowledges.length > 0) { %>
+    <div class="section-title" id="knowledge">行业科普 / Knowledge</div>
+    <div class="tuts-grid">
+      <% knowledges.forEach(function(k) { %>
+      <a href="<%= k.slug %>.html" class="tut-card">
+        <div class="tut-plat"><%= k.tag %></div>
+        <div class="tut-name"><%- k.title %> →</div>
+      </a>
+      <% }); %>
+    </div>
+    <% } %>
+  </div>
+
+  <aside class="sidebar">
+    <div class="widget">
+      <div class="wg-title">关于博主</div>
+      <p style="font-size:13px;color:#666;line-height:1.8;"><%= locals.settings ? settings.about_author : '李志歌迷，坐标华东。讨厌一切花里胡哨的营销。写评测是为了自己备忘，也是为了在这个充满恰饭广告的圈子里留一片干净的自留地。' %></p>
+    </div>
+    <div class="widget">
+      <div class="wg-title">所有评测</div>
+      <ul class="wg-list">
+        <% reviews.forEach(function(review) { %>
+        <li><a href="<%= review.slug %>.html"><%= review.title %></a></li>
+        <% }); %>
+      </ul>
+    </div>
+    <div class="widget" style="padding:16px;background:#eaddc8;border-radius:8px;">
+      <div class="wg-title" style="margin-bottom:8px;">免责声明</div>
+      <p style="font-size:12px;color:#6a5d4d;line-height:1.6;">本站测速仅代表测试当时的网络环境。购买任何服务请按月付起步，警惕年付跑路风险。</p>
+    </div>
+  </aside>
+</main>
+
+<%- include('footer') %>

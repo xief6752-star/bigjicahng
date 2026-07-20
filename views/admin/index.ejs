@@ -1,0 +1,55 @@
+<%- include('header') %>
+
+<% if (locals.buildSuccess) { %>
+<div style="background: #e6f4ea; color: #1e8e3e; padding: 16px; border-radius: 8px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; border: 1px solid #ceead6;">
+  <span style="font-size: 20px;">✅</span>
+  <div>
+    <strong>构建成功！</strong> 所有的静态网页（HTML）已经成功生成并保存在了 <code>/public</code> 目录中。
+  </div>
+</div>
+<% } %>
+
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px;">
+  <h2 style="margin:0;">文章管理</h2>
+  <a href="/admin/edit/new" class="btn btn-primary">+ 新增文章</a>
+</div>
+
+<div class="card">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>类型</th>
+        <th>别名 (Slug)</th>
+        <th>标题</th>
+        <th>标签</th>
+        <th>时间</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% articles.forEach(function(article) { %>
+      <tr>
+        <td><%= article.id %></td>
+        <td>
+          <span style="background: <%= article.type === 'review' ? '#e6f7ff' : '#f6ffed' %>; color: <%= article.type === 'review' ? '#1890ff' : '#52c41a' %>; padding: 2px 6px; border-radius: 2px; border: 1px solid <%= article.type === 'review' ? '#91d5ff' : '#b7eb8f' %>; font-size: 12px;">
+            <%= article.type === 'review' ? '评测' : '教程' %>
+          </span>
+        </td>
+        <td style="font-family: monospace;"><%= article.slug %></td>
+        <td><%= article.title %></td>
+        <td><%= article.tag %></td>
+        <td><%= new Date(article.created_at).toLocaleDateString() %></td>
+        <td>
+          <a href="/admin/edit/<%= article.id %>" class="btn btn-default" style="padding: 4px 8px; font-size: 12px;">编辑</a>
+          <form action="/admin/delete/<%= article.id %>" method="POST" style="display:inline;" onsubmit="return confirm('确定要删除吗？');">
+            <button type="submit" class="btn btn-danger" style="padding: 4px 8px; font-size: 12px;">删除</button>
+          </form>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('footer') %>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClashX / ClashX Pro 使用教程 · 逼哥机场</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans SC', sans-serif; background: #f7f6f2; color: #1a1a1a; font-size: 15px; line-height: 1.7; }
+a { color: inherit; text-decoration: none; }
+nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; border-bottom: 1px solid #e0ddd5; background: #f7f6f2; position: sticky; top: 0; z-index: 10; }
+.nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; }
+.nav-logo span { color: #888; font-weight: 400; margin-left: 8px; font-size: 12px; }
+.nav-back { font-size: 13px; color: #888; } .nav-back:hover { color: #1a1a1a; }
+.article { max-width: 720px; margin: 0 auto; padding: 56px 48px 80px; }
+.art-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.plat-badge { font-family: 'IBM Plex Mono', monospace; font-size: 11px; background: #2d3a2e; color: #fff; padding: 3px 10px; border-radius: 3px; }
+.art-date { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb; }
+.art-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -1px; line-height: 1.25; margin-bottom: 18px; }
+.art-lead { font-size: 15px; color: #555; line-height: 1.9; border-left: 3px solid #1a1a1a; padding-left: 18px; margin-bottom: 40px; }
+h2 { font-size: 1.1rem; font-weight: 700; margin: 40px 0 14px; padding-top: 40px; border-top: 1px solid #e0ddd5; }
+h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+p { font-size: 15px; color: #333; line-height: 1.9; margin-bottom: 14px; }
+.steps { display: flex; flex-direction: column; counter-reset: step; }
+.step { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid #e0ddd5; counter-increment: step; }
+.step:last-child { border-bottom: none; }
+.step-num { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb; min-width: 28px; margin-top: 2px; }
+.step-num::before { content: "0" counter(step); }
+.step-title { font-weight: 700; margin-bottom: 6px; }
+.step-desc { font-size: 14px; color: #555; line-height: 1.8; }
+code { font-family: 'IBM Plex Mono', monospace; background: #eee; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
+.tip { background: #fff; border: 1px solid #e0ddd5; border-left: 3px solid #1a1a1a; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #555; line-height: 1.8; }
+.tip strong { color: #1a1a1a; }
+.warn { background: #fffbf0; border: 1px solid #f0e0a0; border-left: 3px solid #d4a017; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #666; line-height: 1.8; }
+.other-tuts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+.tut-link { border: 1px solid #e0ddd5; border-radius: 8px; padding: 16px 18px; background: #fff; font-size: 13px; transition: border-color .2s; display: block; }
+.tut-link:hover { border-color: #aaa; }
+.tut-link-plat { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #aaa; margin-bottom: 4px; }
+.tut-link-name { font-weight: 700; }
+@media (max-width: 640px) { nav { padding: 16px 20px; } .article { padding: 36px 20px 60px; } .other-tuts { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">逼哥机场<span>使用教程</span></div>
+  <a class="nav-back" href="index.html">← 返回首页</a>
+</nav>
+<article class="article">
+  <div class="art-eyebrow">
+    <span class="plat-badge">macOS</span>
+    <span class="art-date">2026-05-14 更新</span>
+  </div>
+  <h1 class="art-title">ClashX / ClashX Pro<br>使用教程</h1>
+  <div class="art-lead">ClashX 是 macOS 端最简洁的 Clash 客户端，常驻菜单栏，一键切换代理模式。ClashX Pro 在此基础上增加了 TUN 模式，推荐直接用 Pro 版。</div>
+
+  <h2>下载安装</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">下载 ClashX Pro</div>
+        <div class="step-desc">在 GitHub 搜索「ClashX Pro」，下载最新版 <code>.dmg</code> 文件。也可从机场的「客户端下载」页获取链接。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">安装与授权</div>
+        <div class="step-desc">打开 dmg，将 ClashX Pro 拖入 Applications 文件夹。首次启动时，系统会询问是否安装帮助程序（Helper），点击「Install」并输入 Mac 密码授权。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">找到菜单栏图标</div>
+        <div class="step-desc">安装完成后，屏幕右上角菜单栏会出现猫咪图标，所有操作都从这里进行。</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>导入订阅</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">复制机场订阅链接</div>
+        <div class="step-desc">登录机场控制台，复制「Clash 订阅链接」或「一键导入」地址。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">在 ClashX Pro 中添加</div>
+        <div class="step-desc">点击菜单栏猫咪图标 → 「Config」→「Remote Config」→「Manage」→ 点击「Add」→ 粘贴订阅链接 → 确认。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">选中配置</div>
+        <div class="step-desc">在 Remote Config 列表中，点击刚添加的配置右边「Select」使其生效，图标变为选中状态。</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>开启代理</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">开启系统代理</div>
+        <div class="step-desc">点击菜单栏猫咪 → 勾选「Set as System Proxy」，此时 Safari、Chrome 等浏览器即可访问外网。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">选择代理模式</div>
+        <div class="step-desc">菜单栏 → 「Proxy Mode」：<br>· <strong>Rule</strong>：规则分流，日常推荐<br>· <strong>Global</strong>：全部走代理<br>· <strong>Direct</strong>：全部直连（等于关闭）</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">（进阶）开启 TUN 模式</div>
+        <div class="step-desc">菜单栏 → 勾选「Enhanced Mode (TUN)」，可让终端、游戏等不走系统代理的程序也通过 Clash 分流。需要先安装 Helper。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip"><strong>更新订阅：</strong>菜单栏 → Config → Remote Config → 右键配置 → 「Update」。建议配置自动更新间隔（单位：小时）。</div>
+  <div class="warn"><strong>⚠️ macOS 隐私提示：</strong>如果系统弹出「无法打开，因为无法验证开发者」，前往「系统偏好设置 → 安全性与隐私」点击「仍要打开」。</div>
+
+  <h2>其他平台教程</h2>
+  <div class="other-tuts">
+    <a class="tut-link" href="tutorial-clash-win.html"><div class="tut-link-plat">Windows</div><div class="tut-link-name">Clash for Windows →</div></a>
+    <a class="tut-link" href="tutorial-shadowrocket.html"><div class="tut-link-plat">iOS</div><div class="tut-link-name">Shadowrocket 小火箭 →</div></a>
+    <a class="tut-link" href="tutorial-quantumultx.html"><div class="tut-link-plat">iOS</div><div class="tut-link-name">Quantumult X →</div></a>
+    <a class="tut-link" href="tutorial-v2rayn.html"><div class="tut-link-plat">Windows</div><div class="tut-link-name">v2rayN →</div></a>
+    <a class="tut-link" href="tutorial-singbox-android.html"><div class="tut-link-plat">Android</div><div class="tut-link-name">sing-box →</div></a>
+    <a class="tut-link" href="tutorial-mihomo-router.html"><div class="tut-link-plat">路由器</div><div class="tut-link-name">OpenWrt Mihomo →</div></a>
+  </div>
+</article>
+<footer style="max-width:720px;margin:0 auto;padding:32px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e0ddd5;flex-wrap:wrap;gap:12px;">
+  <span style="font-size:13px;color:#999;">逼哥机场评测 · <strong style="color:#555;">独立 · 无广</strong></span>
+  <a href="index.html" style="font-size:13px;color:#888;">← 返回首页</a>
+</footer>
+</body>
+</html>

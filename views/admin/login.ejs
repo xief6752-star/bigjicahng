@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登录 - big博客管理后台</title>
+<style>
+body { font-family: sans-serif; background: #f0f2f5; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+.login-box { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 100%; max-width: 360px; text-align: center; }
+h1 { margin-top: 0; font-size: 24px; margin-bottom: 24px; color: #333; }
+input { width: 100%; padding: 12px; margin-bottom: 16px; border: 1px solid #d9d9d9; border-radius: 4px; box-sizing: border-box; }
+button { width: 100%; padding: 12px; background: #1890ff; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+button:hover { background: #40a9ff; }
+.error { color: #ff4d4f; margin-bottom: 16px; font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="login-box">
+  <h1>后台登录</h1>
+  <% if (locals.error) { %>
+    <div class="error"><%= error %></div>
+  <% } %>
+  <form method="POST" action="/admin/login">
+    <input type="password" name="password" placeholder="请输入密码 (默认: bige123)" required autofocus>
+    <button type="submit">登录</button>
+  </form>
+</div>
+</body>
+</html>

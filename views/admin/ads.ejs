@@ -1,0 +1,41 @@
+<%- include('header') %>
+
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px;">
+  <h2 style="margin:0;">首页广告位管理</h2>
+  <a href="/admin/ads/edit/new" class="btn btn-primary">+ 新增广告</a>
+</div>
+
+<div class="card">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>显示文字</th>
+        <th>链接地址</th>
+        <th>排序权重</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% ads.forEach(function(ad) { %>
+      <tr>
+        <td><%= ad.id %></td>
+        <td><%= ad.title %></td>
+        <td><a href="<%= ad.link %>" target="_blank" style="color: #888; font-family: monospace; font-size: 12px;"><%= ad.link %></a></td>
+        <td><%= ad.sort_order %></td>
+        <td>
+          <a href="/admin/ads/edit/<%= ad.id %>" class="btn btn-default" style="padding: 4px 8px; font-size: 12px;">编辑</a>
+          <form action="/admin/ads/delete/<%= ad.id %>" method="POST" style="display:inline;" onsubmit="return confirm('确定要删除吗？');">
+            <button type="submit" class="btn btn-danger" style="padding: 4px 8px; font-size: 12px;">删除</button>
+          </form>
+        </td>
+      </tr>
+      <% }); %>
+      <% if (ads.length === 0) { %>
+      <tr><td colspan="5" style="text-align: center; color: #999; padding: 32px 0;">暂无配置，首页将显示默认占位符</td></tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('footer') %>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>逼哥机场 · 独立评测</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans SC', sans-serif; background: #f7f6f2; color: #1a1a1a; font-size: 15px; line-height: 1.7; }
+a { color: inherit; text-decoration: none; }
+
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 48px; border-bottom: 1px solid #e0ddd5;
+  background: #f7f6f2; position: sticky; top: 0; z-index: 10;
+}
+.nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; }
+.nav-logo span { color: #888; font-weight: 400; margin-left: 8px; font-size: 12px; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-size: 13px; color: #666; transition: color .2s; }
+.nav-links a:hover { color: #1a1a1a; }
+
+.hero { max-width: 860px; margin: 64px auto 0; padding: 0 48px 56px; border-bottom: 1px solid #e0ddd5; }
+.hero-eyebrow {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #aaa;
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: #ccc; display: block; }
+.hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -1px; margin-bottom: 18px; }
+.hero h1 em { font-style: normal; color: #999; }
+.hero-quote {
+  font-size: 14px; color: #888; font-weight: 300;
+  border-left: 2px solid #ddd; padding-left: 16px; margin-bottom: 28px; line-height: 1.8;
+}
+.hero-quote cite { font-style: normal; font-size: 12px; color: #bbb; display: block; margin-top: 4px; }
+.hero-desc { font-size: 15px; color: #555; max-width: 560px; line-height: 1.9; }
+
+.main { max-width: 860px; margin: 0 auto; padding: 0 48px; display: flex; gap: 60px; }
+.posts { flex: 1; min-width: 0; }
+.sidebar { width: 210px; flex-shrink: 0; }
+
+.sec-label {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #aaa;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 36px 0 18px; display: flex; align-items: center; gap: 10px;
+}
+.sec-label::after { content: ''; flex: 1; height: 1px; background: #e0ddd5; display: block; }
+
+/* PINNED */
+.pinned-post {
+  background: #1a1a1a; color: #f7f6f2;
+  border-radius: 10px; padding: 28px 30px; margin-bottom: 4px;
+  display: block; transition: opacity .2s;
+}
+.pinned-post:hover { opacity: .88; }
+.pinned-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.pin-badge {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  background: #f7f6f2; color: #1a1a1a; padding: 2px 8px; border-radius: 3px; font-weight: 500;
+}
+.pinned-date { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #666; }
+.pinned-post h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -.3px; }
+.pinned-excerpt { font-size: 13px; color: #aaa; line-height: 1.8; margin-bottom: 14px; }
+.pinned-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.ptag {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+  border: 1px solid #333; color: #888; padding: 2px 8px; border-radius: 3px;
+}
+
+/* POSTS */
+.post-list { display: flex; flex-direction: column; }
+.post-item { display: block; padding: 26px 0; border-bottom: 1px solid #e0ddd5; transition: opacity .2s; }
+.post-item:hover { opacity: .7; }
+.post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.post-tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #fff; padding: 2px 8px; border-radius: 3px; }
+.tag-speed { background: #2d6a4f; } .tag-stable { background: #1d3557; }
+.tag-price { background: #6b3a2a; } .tag-best { background: #3d2c8d; }
+.post-date { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb; }
+.post-rating { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #888; }
+.post-rating strong { color: #1a1a1a; font-size: 15px; }
+.post-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -.3px; }
+.post-excerpt { font-size: 13px; color: #666; line-height: 1.8; margin-bottom: 12px; }
+.post-lyric { font-size: 13px; color: #aaa; font-weight: 300; border-left: 2px solid #e0ddd5; padding-left: 12px; font-style: italic; }
+.post-lyric cite { font-style: normal; font-size: 11px; color: #ccc; }
+
+/* TUTORIALS */
+.tut-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #e0ddd5; border: 1px solid #e0ddd5; border-radius: 8px; overflow: hidden; }
+.tut-item {
+  background: #f7f6f2; padding: 20px 22px;
+  display: block; transition: background .2s;
+}
+.tut-item:hover { background: #fff; }
+.tut-platform {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #aaa;
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+}
+.tut-name { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+.tut-desc { font-size: 13px; color: #777; line-height: 1.6; }
+.tut-arrow { font-size: 12px; color: #bbb; margin-top: 8px; }
+
+/* SIDEBAR */
+.about-card { padding-bottom: 28px; border-bottom: 1px solid #e0ddd5; }
+.about-name { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+.about-bio { font-size: 13px; color: #666; line-height: 1.8; }
+.about-tag { display: inline-block; margin-top: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888; border: 1px solid #ddd; padding: 2px 8px; border-radius: 3px; }
+.cat-list { display: flex; flex-direction: column; }
+.cat-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #e0ddd5; font-size: 13px; }
+.cat-item:last-child { border-bottom: none; }
+.cat-count { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb; }
+.recommend-list { display: flex; flex-direction: column; }
+.rec-item { padding: 12px 0; border-bottom: 1px solid #e0ddd5; font-size: 13px; }
+.rec-item:last-child { border-bottom: none; }
+.rec-name { font-weight: 600; margin-bottom: 3px; }
+.rec-score { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888; }
+.notice { background: #fff; border: 1px solid #e0ddd5; border-radius: 8px; padding: 16px 18px; margin-top: 28px; font-size: 13px; color: #666; line-height: 1.8; }
+.notice strong { color: #1a1a1a; display: block; margin-bottom: 4px; }
+
+footer { max-width: 860px; margin: 0 auto; padding: 36px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid #e0ddd5; }
+.footer-l { font-size: 13px; color: #999; }
+.footer-l strong { color: #555; }
+.footer-r { font-size: 13px; color: #bbb; font-family: 'IBM Plex Mono', monospace; }
+
+@media (max-width: 700px) {
+  nav { padding: 16px 20px; } .nav-links { display: none; }
+  .hero, .main, footer { padding-left: 20px; padding-right: 20px; }
+  .main { flex-direction: column; gap: 0; } .sidebar { width: 100%; }
+  .tut-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">逼哥机场<span>独立评测 · 不接广告</span></div>
+  <div class="nav-links">
+    <a href="#reviews">全部评测</a>
+    <a href="#tutorials">使用教程</a>
+    <a href="#sidebar-rec">推荐榜</a>
+    <a href="#about">关于</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">独立 · 无偏向 · 长期跟踪</div>
+  <h1>机场怎么选，<br><em>我来替你跑腿。</em></h1>
+  <div class="hero-quote">
+    「我们生来就是孤独，我们生来就是孤独，有很多事情我们无法说出口。」
+    <cite>—— 李志《梵高先生》</cite>
+  </div>
+  <p class="hero-desc">一个李志歌迷写的机场评测博客。没有商务合作，没有邀请码返利，只有真实的测速数据和使用体验。网络不自由的日子里，选一个靠谱的梯子，算是给自己留条后路。</p>
+</div>
+
+<div class="main">
+  <div class="posts">
+
+    <!-- PINNED -->
+    <div class="sec-label">置顶</div>
+    <a class="pinned-post" href="post-2026-best.html">
+      <div class="pinned-meta">
+        <span class="pin-badge">📌 置顶</span>
+        <span class="pinned-date">2026-05-14 · 持续更新</span>
+      </div>
+      <h2>2026 年机场魔法梯子完整推荐指南</h2>
+      <p class="pinned-excerpt">
+        整理了目前市面上稳定运营、值得推荐的机场服务，按价位和用途分类，附上真实测速数据。
+        无论你是轻度用户还是重度用户，这篇都能找到合适的选项。每月更新一次，跑路的及时剔除。
+      </p>
+      <div class="pinned-tags">
+        <span class="ptag">IEPL</span>
+        <span class="ptag">IPLC</span>
+        <span class="ptag">CN2 GIA</span>
+        <span class="ptag">2026最新</span>
+        <span class="ptag">综合推荐</span>
+      </div>
+    </a>
+
+    <!-- REVIEWS -->
+    <div class="sec-label" id="reviews">最新评测</div>
+    <div class="post-list">
+
+      <a class="post-item" href="review-shunyun.html">
+        <div class="post-meta">
+          <span class="post-tag tag-best">综合推荐</span>
+          <span class="post-date">2026-05-12</span>
+          <span class="post-rating"><strong>8.9</strong> / 10</span>
+        </div>
+        <div class="post-title">瞬云 · 名字起得好，速度也跟得上</div>
+        <div class="post-excerpt">
+          IPLC 专线接入，香港、新加坡、日本节点质量扎实。实测晚高峰 8 点 YouTube 4K
+          秒开，延迟稳定在 80–120ms。套餐分轻量和标准两档，月付从 ¥25 起，性价比在同类专线里算良心。
+          已连续观察三个月，无跑路风险，运营团队响应及时。
+        </div>
+        <div class="post-lyric">
+          「热河路上的老酒吧，你还记得吗？」——瞬云让我想起那种久违的可靠感，用着用着就放心了。
+          <cite>李志《热河》</cite>
+        </div>
+      </a>
+
+      <a class="post-item" href="review-huanyuyun.html">
+        <div class="post-meta">
+          <span class="post-tag tag-stable">稳定性</span>
+          <span class="post-date">2026-05-08</span>
+          <span class="post-rating"><strong>8.4</strong> / 10</span>
+        </div>
+        <div class="post-title">寰宇云 · 覆盖广，适合有多地区需求的用户</div>
+        <div class="post-excerpt">
+          节点覆盖超过 20 个地区，美国东西岸、欧洲、东南亚都有，对需要解锁不同地区内容的用户很友好。
+          主线路走 BGP 中转，延迟略高于纯 IPLC，但胜在稳定不断流。流量包大，年付折算下来每月不到 ¥20。
+          唯一缺点是面板 UI 有点老气，不影响使用。
+        </div>
+        <div class="post-lyric">
+          「以你的名字命名的街道，通向不同的城市。」——寰宇云的节点，就像那些街道，总有一条能带你到想去的地方。
+          <cite>李志《以你的名字命名的街道》</cite>
+        </div>
+      </a>
+
+      <a class="post-item" href="review-wgetcloud.html">
+        <div class="post-meta">
+          <span class="post-tag tag-best">综合推荐</span>
+          <span class="post-date">2026-05-01</span>
+          <span class="post-rating"><strong>9.1</strong> / 10</span>
+        </div>
+        <div class="post-title">WgetCloud · 用了两年，还在续费</div>
+        <div class="post-excerpt">
+          IEPL 专线接入，晚高峰实测 YouTube 4K 无卡顿。价格偏高但稳定性对得起，客服响应快，节点挂了基本当天修。适合对稳定性要求高、预算充裕的用户。
+        </div>
+        <div class="post-lyric">
+          「去大连，去大连，管他什么晚点，反正也没有人在等你。」——有时候选机场也是，你选择相信它，它偶尔也会让你等，但 WgetCloud 让我等的次数很少。
+          <cite>李志《去大连》</cite>
+        </div>
+      </a>
+
+      <a class="post-item" href="review-bywave.html">
+        <div class="post-meta">
+          <span class="post-tag tag-price">性价比</span>
+          <span class="post-date">2026-04-18</span>
+          <span class="post-rating"><strong>8.7</strong> / 10</span>
+        </div>
+        <div class="post-title">ByWave · 小众但稳，低调的优等生</div>
+        <div class="post-excerpt">
+          知名度不高，稳定运营超过三年。IPLC 内网专线，晚高峰基本不掉速。套餐灵活，月付年付都有，节点覆盖够用。推荐给想换换口味的用户。
+        </div>
+        <div class="post-lyric">
+          「山阴路的夏天，我不想离开。」——有些机场就像那条路，走进去就不想换了。
+          <cite>李志《山阴路的夏天》</cite>
+        </div>
+      </a>
+
+      <a class="post-item" href="review-rixcloud.html">
+        <div class="post-meta">
+          <span class="post-tag tag-speed">速度测评</span>
+          <span class="post-date">2026-04-05</span>
+          <span class="post-rating"><strong>8.3</strong> / 10</span>
+        </div>
+        <div class="post-title">RixCloud · 速度快，但别太依赖它</div>
+        <div class="post-excerpt">
+          BGP 多线接入，高峰期跑满 300Mbps 没问题。但历史上跑路过一次，建议当备用机场使用。
+        </div>
+        <div class="post-lyric">
+          「你离开了南京，从此没有人陪我说话。」——机场跑路的那天，感觉就是这样。
+          <cite>李志《你离开了南京》</cite>
+        </div>
+      </a>
+
+      <a class="post-item" href="review-cheap.html">
+        <div class="post-meta">
+          <span class="post-tag tag-stable">避坑</span>
+          <span class="post-date">2026-03-20</span>
+          <span class="post-rating"><strong>5.5</strong> / 10</span>
+        </div>
+        <div class="post-title">9.9元机场测评 · 流量大的代价</div>
+        <div class="post-excerpt">
+          流量大、价格低，高峰期基本不能用，节点经常失效，客服三天才回一次。省的钱都花在找替代品上了。
+        </div>
+        <div class="post-lyric">
+          「这个世界会好吗？」——9.9 的机场会好吗？我不知道。
+          <cite>李志《这个世界会好吗》</cite>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- TUTORIALS -->
+    <div class="sec-label" id="tutorials">使用教程</div>
+    <div class="tut-grid">
+      <a class="tut-item" href="tutorial-clash-win.html">
+        <div class="tut-platform">Windows</div>
+        <div class="tut-name">Clash for Windows</div>
+        <div class="tut-desc">下载安装、导入订阅链接、规则模式配置全流程</div>
+        <div class="tut-arrow">阅读教程 →</div>
+      </a>
+      <a class="tut-item" href="tutorial-clashx-mac.html">
+        <div class="tut-platform">macOS</div>
+        <div class="tut-name">ClashX / ClashX Pro</div>
+        <div class="tut-desc">Mac 端最简洁的 Clash 客户端，一键开启系统代理</div>
+        <div class="tut-arrow">阅读教程 →</div>
+      </a>
+      <a class="tut-item" href="tutorial-shadowrocket.html">
+        <div class="tut-platform">iOS</div>
+        <div class="tut-name">Shadowrocket（小火箭）</div>
+        <div class="tut-desc">购买账号、添加订阅、全局/代理模式切换图文教程</div>
+        <div class="tut-arrow">阅读教程 →</div>
+      </a>
+      <a class="tut-item" href="tutorial-quantumultx.html">
+        <div class="tut-platform">iOS</div>
+        <div class="tut-name">Quantumult X</div>
+        <div class="tut-desc">进阶用户必备，策略组、分流规则、复写脚本配置</div>
+        <div class="tut-arrow">阅读教程 →</div>
+      </a>
+      <a class="tut-item" href="tutorial-v2rayn.html">
+        <div class="tut-platform">Windows</div>
+        <div class="tut-name">v2rayN</div>
+        <div class="tut-desc">轻量备用客户端，手动添加节点与订阅导入教程</div>
+        <div class="tut-arrow">阅读教程 →</div>
+      </a>
+      <a class="tut-item" href="tutorial-v2rayu.html">
+        <div class="tut-platform">macOS</div>
+        <div class="tut-name">V2RayU</div>
+        <div class="tut-desc">Mac 上的 v2ray 图形客户端，配置简单，适合备用</div>
+        <div class="tut-arrow">阅读教程 →</div>
+      </a>
+      <a class="tut-item" href="tutorial-singbox-android.html">
+        <div class="tut-platform">Android</div>
+        <div class="tut-name">sing-box</div>
+        <div class="tut-desc">新一代内核，安卓端配置订阅与分流规则完整指南</div>
+        <div class="tut-arrow">阅读教程 →</div>
+      </a>
+      <a class="tut-item" href="tutorial-mihomo-router.html">
+        <div class="tut-platform">路由器</div>
+        <div class="tut-name">OpenWrt / MihomoTProxy</div>
+        <div class="tut-desc">全家透明代理，OpenWrt 安装 Mihomo 旁路由配置</div>
+        <div class="tut-arrow">阅读教程 →</div>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sec-label" id="about">关于博主</div>
+    <div class="about-card">
+      <div class="about-name">逼哥</div>
+      <div class="about-bio">互联网从业者，李志歌迷，机场重度用户。从 2018 年开始折腾梯子，踩过太多坑，决定写下来。评测全部自费购买，不接任何商务合作。</div>
+      <span class="about-tag">🎸 热河路上的老听众</span>
+    </div>
+
+    <div class="sec-label" id="sidebar-rec">当前推荐</div>
+    <div class="recommend-list">
+      <div class="rec-item">
+        <div class="rec-name">WgetCloud</div>
+        <div class="rec-score">IEPL · 最稳 · 9.1分</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-name">瞬云</div>
+        <div class="rec-score">IPLC · 性价比高 · 8.9分</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-name">ByWave</div>
+        <div class="rec-score">IPLC · 老牌稳定 · 8.7分</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-name">寰宇云</div>
+        <div class="rec-score">BGP · 节点广 · 8.4分</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-name">RixCloud</div>
+        <div class="rec-score">备用 · 速度快 · 8.3分</div>
+      </div>
+    </div>
+
+    <div class="sec-label">分类</div>
+    <div class="cat-list">
+      <div class="cat-item"><span>综合推荐</span><span class="cat-count">9</span></div>
+      <div class="cat-item"><span>速度测评</span><span class="cat-count">13</span></div>
+      <div class="cat-item"><span>稳定性分析</span><span class="cat-count">10</span></div>
+      <div class="cat-item"><span>性价比</span><span class="cat-count">7</span></div>
+      <div class="cat-item"><span>使用教程</span><span class="cat-count">8</span></div>
+      <div class="cat-item"><span>跑路记录</span><span class="cat-count">4</span></div>
+    </div>
+
+    <div class="notice">
+      <strong>📌 免责说明</strong>
+      本站内容仅供学习交流参考，请遵守所在地区相关法律法规，合理合规使用网络工具。
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-l">逼哥机场评测 · <strong>独立 · 无广</strong> · 始于 2018</div>
+  <div class="footer-r">「明天会好的。」—— 李志</div>
+</footer>
+
+</body>
+</html>

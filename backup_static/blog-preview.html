@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>nodejs-koa-blog · 项目介绍</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+  background: #f7f6f2;
+  color: #1a1a1a;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── TOP NAV ── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  border-bottom: 1px solid #e0ddd5;
+  background: #f7f6f2;
+  position: sticky; top: 0; z-index: 10;
+}
+.nav-logo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+.nav-links { display: flex; gap: 28px; }
+.nav-links a {
+  font-size: 13px;
+  color: #666;
+  transition: color .2s;
+}
+.nav-links a:hover { color: #1a1a1a; }
+.nav-github {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 500;
+  background: #1a1a1a; color: #f7f6f2;
+  padding: 7px 16px; border-radius: 6px;
+  transition: opacity .2s;
+}
+.nav-github:hover { opacity: .8; }
+
+/* ── HERO ── */
+.hero {
+  max-width: 900px;
+  margin: 80px auto 0;
+  padding: 0 40px 60px;
+  border-bottom: 1px solid #e0ddd5;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px; color: #888;
+  margin-bottom: 28px;
+}
+.hero-tag::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: #4caf50; }
+.hero h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: #888;
+}
+.hero-desc {
+  font-size: 16px;
+  color: #555;
+  max-width: 580px;
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+.hero-meta {
+  display: flex; gap: 24px; flex-wrap: wrap;
+}
+.hero-meta-item {
+  display: flex; flex-direction: column; gap: 2px;
+}
+.meta-label { font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
+.meta-value { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #333; font-weight: 500; }
+
+/* ── LAYOUT ── */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── SECTION ── */
+.section { padding: 56px 0; border-bottom: 1px solid #e0ddd5; }
+.section:last-of-type { border-bottom: none; }
+
+.section-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -.5px;
+}
+
+/* ── INTRO BLOCK ── */
+.intro-text {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.9;
+  max-width: 680px;
+}
+.intro-text strong { color: #1a1a1a; }
+
+/* ── FEATURE LIST ── */
+.feature-list { margin-top: 32px; display: flex; flex-direction: column; gap: 1px; }
+.feature-item {
+  display: flex; align-items: flex-start; gap: 20px;
+  padding: 20px 0;
+  border-top: 1px solid #e0ddd5;
+}
+.feature-item:first-child { border-top: none; }
+.f-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; color: #bbb;
+  min-width: 28px; margin-top: 3px;
+}
+.f-title { font-weight: 600; margin-bottom: 4px; font-size: 15px; }
+.f-desc { font-size: 14px; color: #666; }
+
+/* ── STACK TABLE ── */
+.stack-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.stack-table tr { border-top: 1px solid #e0ddd5; }
+.stack-table tr:first-child { border-top: none; }
+.stack-table td { padding: 14px 0; vertical-align: top; }
+.stack-table td:first-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px; color: #333; font-weight: 500;
+  width: 160px; padding-right: 20px;
+}
+.stack-table td:last-child { font-size: 14px; color: #666; }
+
+/* ── CODE ── */
+.code-wrap {
+  background: #1e1e1e;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 28px 0;
+}
+.code-top {
+  display: flex; align-items: center; gap: 6px;
+  padding: 12px 16px;
+  background: #2a2a2a;
+}
+.cd { width: 10px; height: 10px; border-radius: 50%; }
+.cd-r { background: #ff5f57; } .cd-y { background: #febc2e; } .cd-g { background: #28c840; }
+.code-file { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #666; margin-left: 6px; }
+pre {
+  padding: 20px 22px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px; line-height: 1.9;
+  color: #cdd3de; overflow-x: auto;
+}
+.c-cmt { color: #5c6370; font-style: italic; }
+.c-kw  { color: #c678dd; }
+.c-str { color: #98c379; }
+.c-num { color: #d19a66; }
+.c-fn  { color: #61afef; }
+
+/* ── ARCHITECTURE ── */
+.arch-list { margin-top: 12px; display: flex; flex-direction: column; gap: 0; }
+.arch-row {
+  display: flex; align-items: center; gap: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+}
+.arch-layer {
+  width: 90px; font-size: 11px; color: #aaa;
+  text-align: right; padding-right: 16px;
+  text-transform: uppercase; letter-spacing: .5px;
+}
+.arch-boxes {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  padding: 12px 0;
+  border-left: 2px solid #e0ddd5;
+  padding-left: 20px;
+  flex: 1;
+}
+.arch-box {
+  border: 1px solid #ddd; background: #fff;
+  border-radius: 6px; padding: 6px 14px;
+  font-size: 12px; color: #333;
+}
+.arch-arrow-row {
+  display: flex; align-items: center;
+  padding-left: 110px;
+}
+.arch-arrow-row::before {
+  content: '↕';
+  color: #ccc; font-size: 16px;
+  font-family: sans-serif;
+}
+
+/* ── PROJECTS ── */
+.projects-list { margin-top: 12px; display: flex; flex-direction: column; gap: 1px; }
+.proj-item {
+  display: flex; align-items: center; gap: 20px;
+  padding: 18px 0;
+  border-top: 1px solid #e0ddd5;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.proj-item:first-child { border-top: none; }
+.proj-item:hover { opacity: .7; }
+.proj-role {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; color: #aaa;
+  min-width: 80px;
+}
+.proj-name { font-weight: 600; font-size: 14px; flex: 1; }
+.proj-tech { font-size: 13px; color: #888; }
+.proj-arrow { color: #ccc; font-size: 16px; }
+
+/* ── QUICKSTART ── */
+.steps { counter-reset: step; display: flex; flex-direction: column; gap: 28px; margin-top: 12px; }
+.step { display: flex; gap: 20px; }
+.step-num {
+  counter-increment: step;
+  width: 28px; height: 28px; flex-shrink: 0;
+  border: 1px solid #ddd; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px; color: #888; margin-top: 2px;
+}
+.step-num::before { content: counter(step); }
+.step-body {}
+.step-title { font-weight: 600; margin-bottom: 6px; }
+.step-desc { font-size: 14px; color: #666; }
+
+/* ── FOOTER ── */
+footer {
+  max-width: 900px; margin: 0 auto;
+  padding: 36px 40px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  border-top: 1px solid #e0ddd5;
+}
+.footer-left { font-size: 13px; color: #999; }
+.footer-left strong { color: #555; }
+.footer-right a {
+  font-size: 13px; color: #555;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .hero, .container { padding-left: 20px; padding-right: 20px; }
+  .hero { margin-top: 40px; }
+  .arch-layer { display: none; }
+  .arch-arrow-row { padding-left: 20px; }
+  .stack-table td:first-child { width: 120px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">nodejs-koa-blog</div>
+  <div class="nav-links">
+    <a href="#intro">简介</a>
+    <a href="#stack">技术栈</a>
+    <a href="#start">快速开始</a>
+    <a href="#projects">子项目</a>
+  </div>
+  <a class="nav-github" href="https://github.com/lfb/nodejs-koa-blog" target="_blank">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+    GitHub
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="intro">
+  <div class="hero-tag">开源 · 学习项目 · MIT License</div>
+  <h1>一个用 Node.js<br>写的<em>博客系统</em></h1>
+  <p class="hero-desc">
+    基于 Koa2 构建 REST API，配套 Vue/React 管理后台和 Next.js/Nuxt.js 前端。
+    代码结构清晰，适合 Node.js 入门学习，也可作为毕设项目基础。
+  </p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="meta-label">后端</span>
+      <span class="meta-value">Node.js + Koa2</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="meta-label">数据库</span>
+      <span class="meta-value">MySQL</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="meta-label">启动端口</span>
+      <span class="meta-value">localhost:5000</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="meta-label">作者</span>
+      <span class="meta-value">LFB</span>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="container">
+  <section class="section" id="features">
+    <div class="section-label">功能模块</div>
+    <p class="intro-text">
+      系统实现了一个博客所需的完整后端接口，包括<strong>文章管理、分类管理、管理员认证</strong>，
+      以及工程层面的日志、参数校验、API 文档和单元测试，是一套可以直接拿来参考的工程化实践。
+    </p>
+
+    <div class="feature-list">
+      <div class="feature-item">
+        <span class="f-num">01</span>
+        <div>
+          <div class="f-title">管理员认证</div>
+          <div class="f-desc">JWT 无状态登录，token 校验中间件保护所有写操作接口。</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="f-num">02</span>
+        <div>
+          <div class="f-title">文章 & 分类 CRUD</div>
+          <div class="f-desc">完整增删改查，支持 Markdown 内容存储，文章分页列表，草稿/发布状态管理。</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="f-num">03</span>
+        <div>
+          <div class="f-title">图片上传</div>
+          <div class="f-desc">封面图上传接口，存储至本地文件系统，返回可访问 URL。</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="f-num">04</span>
+        <div>
+          <div class="f-title">参数校验 & 统一错误处理</div>
+          <div class="f-desc">请求参数自动校验中间件，错误信息格式统一，前端对接省心。</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="f-num">05</span>
+        <div>
+          <div class="f-title">Swagger API 文档 & 单元测试</div>
+          <div class="f-desc">自动生成接口文档，核心接口有测试用例，工程质量有保障。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="section" id="stack">
+    <div class="section-label">技术栈</div>
+    <table class="stack-table">
+      <tr>
+        <td>Koa2</td>
+        <td>后端核心框架，洋葱模型中间件，处理路由与请求响应</td>
+      </tr>
+      <tr>
+        <td>Sequelize</td>
+        <td>ORM 层，操作 MySQL，Model 定义与数据迁移</td>
+      </tr>
+      <tr>
+        <td>MySQL</td>
+        <td>关系型数据库，存储文章、分类、用户数据</td>
+      </tr>
+      <tr>
+        <td>jsonwebtoken</td>
+        <td>JWT 生成与验证，实现无状态管理员认证</td>
+      </tr>
+      <tr>
+        <td>log4js</td>
+        <td>日志记录，请求日志 + 错误日志分级输出</td>
+      </tr>
+      <tr>
+        <td>koa-swagger</td>
+        <td>自动生成 Swagger API 文档</td>
+      </tr>
+      <tr>
+        <td>mocha / chai</td>
+        <td>单元测试框架，接口测试用例</td>
+      </tr>
+      <tr>
+        <td>PM2</td>
+        <td>生产环境进程管理与守护</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section class="section">
+    <div class="section-label">项目结构</div>
+    <div class="code-wrap">
+      <div class="code-top">
+        <div class="cd cd-r"></div><div class="cd cd-y"></div><div class="cd cd-g"></div>
+        <span class="code-file">nodejs-koa-blog/</span>
+      </div>
+      <pre>app/
+  ├── api/          <span class="c-cmt"># 路由层 — 文章、分类、用户接口</span>
+  ├── dao/          <span class="c-cmt"># 数据访问层 — 封装数据库查询</span>
+  ├── models/       <span class="c-cmt"># Sequelize Model 定义</span>
+  ├── validators/   <span class="c-cmt"># 参数校验规则</span>
+  ├── middleware/   <span class="c-cmt"># JWT 鉴权、错误处理等中间件</span>
+  └── lib/          <span class="c-cmt"># 工具函数</span>
+config/             <span class="c-cmt"># 数据库连接、密钥等配置</span>
+logs/               <span class="c-cmt"># 运行日志</span>
+test/               <span class="c-cmt"># 单元测试</span>
+.env.development    <span class="c-cmt"># 本地环境变量</span>
+app.js              <span class="c-cmt"># 入口文件</span></pre>
+    </div>
+  </section>
+
+  <!-- QUICK START -->
+  <section class="section" id="start">
+    <div class="section-label">快速开始</div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <div class="step-title">克隆仓库</div>
+          <div class="code-wrap" style="margin-top:10px;margin-bottom:0">
+            <div class="code-top"><div class="cd cd-r"></div><div class="cd cd-y"></div><div class="cd cd-g"></div></div>
+            <pre>git clone https://github.com/lfb/nodejs-koa-blog.git
+cd nodejs-koa-blog</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <div class="step-title">创建数据库</div>
+          <div class="step-desc" style="margin-bottom:10px">需要本地安装 MySQL，然后创建数据库：</div>
+          <div class="code-wrap" style="margin-bottom:0">
+            <div class="code-top"><div class="cd cd-r"></div><div class="cd cd-y"></div><div class="cd cd-g"></div></div>
+            <pre>mysql -uroot -p<span class="c-str">你的密码</span>
+
+<span class="c-fn">CREATE DATABASE IF NOT EXISTS</span> boblog
+  <span class="c-fn">DEFAULT CHARACTER SET</span> utf8mb4;</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <div class="step-title">配置环境变量</div>
+          <div class="step-desc" style="margin-bottom:10px">修改根目录 <code style="font-family:'IBM Plex Mono',monospace;font-size:13px;background:#eee;padding:1px 6px;border-radius:4px">.env.development</code>：</div>
+          <div class="code-wrap" style="margin-bottom:0">
+            <div class="code-top"><div class="cd cd-r"></div><div class="cd cd-y"></div><div class="cd cd-g"></div><span class="code-file">.env.development</span></div>
+            <pre>DB_NAME     = <span class="c-str">'boblog'</span>
+DB_HOST     = <span class="c-str">'localhost'</span>
+DB_PORT     = <span class="c-num">3306</span>
+DB_USER     = <span class="c-str">'root'</span>
+DB_PASSWORD = <span class="c-str">'你的密码'</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <div class="step-title">安装依赖 & 启动</div>
+          <div class="code-wrap" style="margin-top:10px;margin-bottom:0">
+            <div class="code-top"><div class="cd cd-r"></div><div class="cd cd-y"></div><div class="cd cd-g"></div></div>
+            <pre>npm install
+npm run dev
+
+<span class="c-cmt"># 看到这行说明启动成功 👇</span>
+<span class="c-str">Server running at http://localhost:5000</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="section-label">配套子项目</div>
+    <p style="font-size:14px;color:#666;margin-bottom:4px">
+      后端 API 是核心，前端可以按自己熟悉的技术栈选一个搭配使用。
+    </p>
+
+    <div class="projects-list">
+      <a class="proj-item" href="https://github.com/lfb/nodejs-koa-blog" target="_blank">
+        <span class="proj-role">后端 API</span>
+        <span class="proj-name">nodejs-koa-blog</span>
+        <span class="proj-tech">Node.js · Koa2 · MySQL</span>
+        <span class="proj-arrow">↗</span>
+      </a>
+      <a class="proj-item" href="https://github.com/lfb/vue-blog-admin" target="_blank">
+        <span class="proj-role">管理后台</span>
+        <span class="proj-name">vue-blog-admin</span>
+        <span class="proj-tech">Vue.js</span>
+        <span class="proj-arrow">↗</span>
+      </a>
+      <a class="proj-item" href="https://github.com/lfb/react-blog-admin" target="_blank">
+        <span class="proj-role">管理后台</span>
+        <span class="proj-name">react-blog-admin</span>
+        <span class="proj-tech">React.js</span>
+        <span class="proj-arrow">↗</span>
+      </a>
+      <a class="proj-item" href="https://github.com/lfb/nextjs-blog" target="_blank">
+        <span class="proj-role">前端网站</span>
+        <span class="proj-name">nextjs-blog</span>
+        <span class="proj-tech">Next.js · SSR</span>
+        <span class="proj-arrow">↗</span>
+      </a>
+      <a class="proj-item" href="https://github.com/lfb/nuxtjs-blog-web" target="_blank">
+        <span class="proj-role">前端网站</span>
+        <span class="proj-name">nuxtjs-blog-web</span>
+        <span class="proj-tech">Nuxt.js · Vue SSR</span>
+        <span class="proj-arrow">↗</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-left">
+    作者 <strong>LFB</strong> · MIT License · 预览整理
+  </div>
+  <div class="footer-right">
+    <a href="https://github.com/lfb/nodejs-koa-blog" target="_blank">查看源码 →</a>
+  </div>
+</footer>
+
+</body>
+</html>
