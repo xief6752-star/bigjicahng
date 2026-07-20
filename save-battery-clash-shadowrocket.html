@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>big博客 · 独立评测</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans SC', sans-serif; background: #f7f6f2; color: #1a1a1a; font-size: 15px; line-height: 1.7; }
+a { color: inherit; text-decoration: none; }
+nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; border-bottom: 1px solid #e0ddd5; background: #f7f6f2; position: sticky; top: 0; z-index: 10; }
+.nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; }
+.nav-logo span { color: #888; font-weight: 400; margin-left: 8px; font-size: 12px; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-size: 13px; color: #666; transition: color .2s; }
+.nav-links a:hover { color: #1a1a1a; }
+.nav-back { font-size: 13px; color: #888; } .nav-back:hover { color: #1a1a1a; }
+@media (max-width: 640px) { nav { padding: 16px 20px; } }
+</style>
+
+
+</head>
+<body>
+
+
+<style>
+.article { max-width: 720px; margin: 0 auto; padding: 56px 48px 80px; }
+.art-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.rev-tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; background: #1a1a1a; color: #fff; padding: 3px 10px; border-radius: 3px; }
+.art-date { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb; }
+.art-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; letter-spacing: -1px; line-height: 1.25; margin-bottom: 8px; }
+.art-subtitle { font-size: 15px; color: #888; margin-bottom: 28px; }
+.score-bar { display: flex; align-items: center; gap: 20px; padding: 20px 24px; background: #1a1a1a; border-radius: 10px; margin-bottom: 36px; flex-wrap: wrap; gap: 16px; }
+.score-main { color: #f7f6f2; }
+.score-num { font-family: 'IBM Plex Mono', monospace; font-size: 3rem; font-weight: 500; line-height: 1; }
+.score-label { font-size: 12px; color: #888; margin-top: 4px; }
+.score-divider { width: 1px; height: 48px; background: #333; }
+.score-items { display: flex; gap: 20px; flex-wrap: wrap; }
+.score-item { color: #f7f6f2; }
+.score-item-val { font-family: 'IBM Plex Mono', monospace; font-size: 1.2rem; font-weight: 500; }
+.score-item-label { font-size: 11px; color: #666; margin-top: 2px; }
+
+/* Article Content Styles */
+.article h2 { font-size: 1.1rem; font-weight: 700; margin: 40px 0 14px; padding-top: 40px; border-top: 1px solid #e0ddd5; }
+.article h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+.article p { font-size: 15px; color: #333; line-height: 1.9; margin-bottom: 14px; }
+.article table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+.article thead tr { border-bottom: 2px solid #1a1a1a; }
+.article tbody tr { border-bottom: 1px solid #e0ddd5; }
+.article th { font-weight: 600; text-align: left; padding: 10px 12px 10px 0; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; }
+.article td { padding: 12px 12px 12px 0; color: #444; }
+.article td:first-child { font-weight: 600; color: #1a1a1a; }
+.article ul { margin: 12px 0 16px 20px; color: #555; font-size: 14px; line-height: 2; }
+.article .verdict { background: #fff; border: 1px solid #e0ddd5; border-radius: 10px; padding: 24px 26px; margin: 28px 0; }
+.article .verdict-title { font-weight: 700; margin-bottom: 12px; font-size: 15px; }
+.article .verdict-row { display: flex; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #555; align-items: flex-start; }
+.article .verdict-row:last-child { margin-bottom: 0; }
+.article .lyric-block { background: #1a1a1a; color: #f7f6f2; border-radius: 8px; padding: 22px 24px; margin: 32px 0; font-size: 14px; line-height: 1.9; font-weight: 300; }
+.article .lyric-block cite { font-style: normal; font-size: 12px; color: #666; display: block; margin-top: 8px; }
+.article .tip { background: #fff; border: 1px solid #e0ddd5; border-left: 3px solid #1a1a1a; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #555; line-height: 1.8; }
+.article .tip strong { color: #1a1a1a; }
+.article .warn { background: #fffbf0; border: 1px solid #f0e0a0; border-left: 3px solid #d4a017; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #666; line-height: 1.8; }
+.article .danger { background: #fff5f5; border: 1px solid #f0b0b0; border-left: 3px solid #c0392b; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #555; line-height: 1.8; }
+.article .danger strong { color: #c0392b; }
+.article .steps { display: flex; flex-direction: column; counter-reset: step; }
+.article .step { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid #e0ddd5; counter-increment: step; }
+.article .step:last-child { border-bottom: none; }
+.article .step-num { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb; min-width: 28px; margin-top: 2px; }
+.article .step-num::before { content: "0" counter(step); }
+.article .step-title { font-weight: 700; margin-bottom: 6px; }
+.article .step-desc { font-size: 14px; color: #555; line-height: 1.8; }
+.article code { font-family: 'IBM Plex Mono', monospace; background: #eee; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
+.article .code-block { background: #1e1e1e; border-radius: 8px; padding: 16px 20px; margin: 12px 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #cdd3de; line-height: 1.8; overflow-x: auto; }
+.article .other-tuts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+.article .tut-link { border: 1px solid #e0ddd5; border-radius: 8px; padding: 16px 18px; background: #fff; font-size: 13px; transition: border-color .2s; display: block; }
+.article .tut-link:hover { border-color: #aaa; }
+.article .tut-link-plat { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #aaa; margin-bottom: 4px; }
+.article .tut-link-name { font-weight: 700; }
+
+@media (max-width: 640px) { .article { padding: 36px 20px 60px; } .score-divider { display: none; } .other-tuts { grid-template-columns: 1fr; } }
+</style>
+
+<nav>
+  <div class="nav-logo">big博客<span>使用教程</span></div>
+  <a class="nav-back" href="/">← 返回首页</a>
+</nav>
+
+<article class="article">
+  <div class="art-eyebrow">
+    <span class="rev-tag" style="background: #2d3a2e">实用教程</span>
+    <span class="art-date">2026-06-26</span>
+  </div>
+  <h1 class="art-title">手机挂着梯子耗电太快？教你如何正确配置 Clash/Shadowrocket 的分流规则省电</h1>
+  <div class="art-subtitle">别让你的手机电量被垃圾规则榨干。老油条教你如何优化分流，实现无感省电。</div>
+
+
+
+  
+            <h2>为什么挂着代理，手机电量像尿崩一样？</h2>
+            <p>很多小白用户刚接触 Shadowrocket（小火箭）或者 Clash，为了省事，直接开启“全局路由（Global）”或者用了一套来历不明的远古规则。结果发现，原本能用一整天的 iPhone，现在半天就提示电量不足了。手机后背还经常莫名其妙发烫。</p>
+            <p>这是因为你的规则没写好！如果你用全局模式，你打开微信、刷抖音、看淘宝的每一兆国内流量，都会先被加密，然后绕道海外服务器，再兜个大圈子绕回来。这不仅让你用国内 App 卡顿，还会让手机的 CPU 和基带芯片一直处于高负荷的加密解密运算中，不耗电才见鬼了。</p>
+
+            <h2>核心优化逻辑：精准的 GeoIP 与 GeoSite 拦截</h2>
+            <p>想要省电，最核心的原则就是：<strong>国内直连（Direct），国外走代理（Proxy），广告直接拦截（Reject）。</strong></p>
+            <p>在 2026 年，最成熟的做法是使用基于 <code>GEOSITE</code> 和 <code>GEOIP</code> 的懒人规则包（比如 Github 著名的 blackmatrix7 规则）。</p>
+            <ul>
+                <li><strong>广告拦截（Reject）</strong>：将各大 App 的开屏广告域名直接在本地屏蔽，不仅省电还省流量。</li>
+                <li><strong>国内应用（Direct）</strong>：通过 <code>GEOSITE,CN</code> 规则，让微信、支付宝、B站等应用直接走本地网络，完全不经过加密核心。</li>
+                <li><strong>精准匹配（Proxy）</strong>：只有像 Telegram、Twitter、YouTube 这类特定的海外域名，才会激活代理隧道。</li>
+            </ul>
+
+            <h2>具体操作步骤</h2>
+            <p>以 Shadowrocket 为例：不要自己一条条加规则。去“配置”页面，点击右上角的“+”号，输入稳定的线上规则文件 URL（建议搜一下最新的“小火箭精简版去广告规则”）。下载并点击使用，把路由模式设置为<strong>“配置（Config）”</strong>。千万别选“代理（Proxy）”！</p>
+            <div class="tip"><strong>实测效果：</strong>配置好精准的分流规则后，后台常驻 24 小时的耗电量通常能控制在 3%-5% 以内，你完全可以把它当成透明的，实现真正的“全天候无感翻墙”。</div>
+        
+
+</article>
+
+<footer style="max-width:860px;margin:60px auto 0;padding:32px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e0ddd5;flex-wrap:wrap;gap:12px;">
+  <span style="font-size:13px;color:#999;">big博客评测 · <strong style="color:#555;">独立 · 无广</strong></span>
+  <a href="/" style="font-size:13px;color:#888;">← 返回首页</a>
+</footer>
+</body>
+</html>
+

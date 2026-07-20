@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>big博客 · 独立评测</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans SC', sans-serif; background: #f7f6f2; color: #1a1a1a; font-size: 15px; line-height: 1.7; }
+a { color: inherit; text-decoration: none; }
+nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; border-bottom: 1px solid #e0ddd5; background: #f7f6f2; position: sticky; top: 0; z-index: 10; }
+.nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; }
+.nav-logo span { color: #888; font-weight: 400; margin-left: 8px; font-size: 12px; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-size: 13px; color: #666; transition: color .2s; }
+.nav-links a:hover { color: #1a1a1a; }
+.nav-back { font-size: 13px; color: #888; } .nav-back:hover { color: #1a1a1a; }
+@media (max-width: 640px) { nav { padding: 16px 20px; } }
+</style>
+
+
+</head>
+<body>
+
+
+<style>
+.article { max-width: 720px; margin: 0 auto; padding: 56px 48px 80px; }
+.art-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.rev-tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; background: #1a1a1a; color: #fff; padding: 3px 10px; border-radius: 3px; }
+.art-date { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb; }
+.art-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; letter-spacing: -1px; line-height: 1.25; margin-bottom: 8px; }
+.art-subtitle { font-size: 15px; color: #888; margin-bottom: 28px; }
+.score-bar { display: flex; align-items: center; gap: 20px; padding: 20px 24px; background: #1a1a1a; border-radius: 10px; margin-bottom: 36px; flex-wrap: wrap; gap: 16px; }
+.score-main { color: #f7f6f2; }
+.score-num { font-family: 'IBM Plex Mono', monospace; font-size: 3rem; font-weight: 500; line-height: 1; }
+.score-label { font-size: 12px; color: #888; margin-top: 4px; }
+.score-divider { width: 1px; height: 48px; background: #333; }
+.score-items { display: flex; gap: 20px; flex-wrap: wrap; }
+.score-item { color: #f7f6f2; }
+.score-item-val { font-family: 'IBM Plex Mono', monospace; font-size: 1.2rem; font-weight: 500; }
+.score-item-label { font-size: 11px; color: #666; margin-top: 2px; }
+
+/* Article Content Styles */
+.article h2 { font-size: 1.1rem; font-weight: 700; margin: 40px 0 14px; padding-top: 40px; border-top: 1px solid #e0ddd5; }
+.article h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+.article p { font-size: 15px; color: #333; line-height: 1.9; margin-bottom: 14px; }
+.article table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+.article thead tr { border-bottom: 2px solid #1a1a1a; }
+.article tbody tr { border-bottom: 1px solid #e0ddd5; }
+.article th { font-weight: 600; text-align: left; padding: 10px 12px 10px 0; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; }
+.article td { padding: 12px 12px 12px 0; color: #444; }
+.article td:first-child { font-weight: 600; color: #1a1a1a; }
+.article ul { margin: 12px 0 16px 20px; color: #555; font-size: 14px; line-height: 2; }
+.article .verdict { background: #fff; border: 1px solid #e0ddd5; border-radius: 10px; padding: 24px 26px; margin: 28px 0; }
+.article .verdict-title { font-weight: 700; margin-bottom: 12px; font-size: 15px; }
+.article .verdict-row { display: flex; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #555; align-items: flex-start; }
+.article .verdict-row:last-child { margin-bottom: 0; }
+.article .lyric-block { background: #1a1a1a; color: #f7f6f2; border-radius: 8px; padding: 22px 24px; margin: 32px 0; font-size: 14px; line-height: 1.9; font-weight: 300; }
+.article .lyric-block cite { font-style: normal; font-size: 12px; color: #666; display: block; margin-top: 8px; }
+.article .tip { background: #fff; border: 1px solid #e0ddd5; border-left: 3px solid #1a1a1a; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #555; line-height: 1.8; }
+.article .tip strong { color: #1a1a1a; }
+.article .warn { background: #fffbf0; border: 1px solid #f0e0a0; border-left: 3px solid #d4a017; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #666; line-height: 1.8; }
+.article .danger { background: #fff5f5; border: 1px solid #f0b0b0; border-left: 3px solid #c0392b; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #555; line-height: 1.8; }
+.article .danger strong { color: #c0392b; }
+.article .steps { display: flex; flex-direction: column; counter-reset: step; }
+.article .step { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid #e0ddd5; counter-increment: step; }
+.article .step:last-child { border-bottom: none; }
+.article .step-num { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb; min-width: 28px; margin-top: 2px; }
+.article .step-num::before { content: "0" counter(step); }
+.article .step-title { font-weight: 700; margin-bottom: 6px; }
+.article .step-desc { font-size: 14px; color: #555; line-height: 1.8; }
+.article code { font-family: 'IBM Plex Mono', monospace; background: #eee; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
+.article .code-block { background: #1e1e1e; border-radius: 8px; padding: 16px 20px; margin: 12px 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #cdd3de; line-height: 1.8; overflow-x: auto; }
+.article .other-tuts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+.article .tut-link { border: 1px solid #e0ddd5; border-radius: 8px; padding: 16px 18px; background: #fff; font-size: 13px; transition: border-color .2s; display: block; }
+.article .tut-link:hover { border-color: #aaa; }
+.article .tut-link-plat { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #aaa; margin-bottom: 4px; }
+.article .tut-link-name { font-weight: 700; }
+
+@media (max-width: 640px) { .article { padding: 36px 20px 60px; } .score-divider { display: none; } .other-tuts { grid-template-columns: 1fr; } }
+</style>
+
+<nav>
+  <div class="nav-logo">big博客<span>使用教程</span></div>
+  <a class="nav-back" href="/">← 返回首页</a>
+</nav>
+
+<article class="article">
+  <div class="art-eyebrow">
+    <span class="rev-tag" style="background: #2d3a2e">路由器</span>
+    <span class="art-date">2025-09-25</span>
+  </div>
+  <h1 class="art-title">OpenWrt + Mihomo<br>旁路由透明代理教程</h1>
+  <div class="art-subtitle">旁路由方案可以让家里所有设备无需单独配置，直接走代理。适合有折腾能力的用户，配置成本高但用起来最省心。本文介绍 OpenWrt 安装 Mihomo（原 Clash Meta）的完整流程。</div>
+
+
+
+  <div class="danger">
+    <strong>⚠️ 高级教程，有一定门槛</strong><br>
+    本教程需要你有一台运行 OpenWrt 的路由器或软路由，具备基础 Linux 命令行操作能力。配置出错可能导致断网。建议有经验的用户操作，新手请先用手机/电脑客户端方案。
+  </div>
+
+  <h2>方案说明</h2>
+  <p>旁路由方案：主路由不动，用一台运行 OpenWrt 的设备（软路由/树莓派/小主机）作为旁路网关，家中设备将网关地址指向旁路由，流量经过 Mihomo 分流后再出去。</p>
+  <div class="tip"><strong>推荐硬件：</strong>R2S / R4S / N100 小主机 / 旧电脑安装 OpenWrt，或直接购买预装 OpenWrt 的软路由设备。</div>
+
+  <h2>安装 Mihomo</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">SSH 登录 OpenWrt</div>
+        <div class="step-desc">在终端执行 <code>ssh root@192.168.1.1</code>（IP 根据实际修改），输入密码登录。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">安装 luci-app-mihomo</div>
+        <div class="step-desc">推荐使用 luci-app-mihomo 插件，提供图形化界面：</div>
+      </div>
+    </div>
+  </div>
+  <div class="code-block">opkg update
+opkg install luci-app-mihomo</div>
+  <p>如果 opkg 中没有，可手动下载 ipk 包安装，或使用第三方软件源（如 kiddin9 源）。</p>
+
+  <h2>配置 Mihomo</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">上传订阅配置</div>
+        <div class="step-desc">在 OpenWrt 后台 → 服务 → Mihomo → 「配置文件」→ 输入机场提供的 Clash Meta 订阅链接 → 下载配置。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">配置透明代理</div>
+        <div class="step-desc">在 Mihomo 设置页中开启「透明代理」，设置旁路由 IP 作为网关地址，选择 TProxy 模式（推荐）。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-body">
+        <div class="step-title">修改客户端网关</div>
+        <div class="step-desc">家中设备的网络设置 → 将「默认网关」改为旁路由的 IP 地址 → 即可走透明代理，无需在设备上安装任何软件。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="warn"><strong>DNS 防泄漏：</strong>同时将客户端 DNS 也改为旁路由 IP，让 Mihomo 接管 DNS 解析，避免 DNS 泄漏导致分流失效。</div>
+
+  <h2>验证是否生效</h2>
+  <p>在家中任意设备浏览器访问 <code>ip.sb</code>，如显示代理节点的 IP 地址，说明透明代理配置成功。</p>
+
+  <h2>其他平台教程</h2>
+  <div class="other-tuts">
+    <a class="tut-link" href="tutorial-clash-win.html"><div class="tut-link-plat">Windows</div><div class="tut-link-name">Clash for Windows →</div></a>
+    <a class="tut-link" href="tutorial-clashx-mac.html"><div class="tut-link-plat">macOS</div><div class="tut-link-name">ClashX Pro →</div></a>
+    <a class="tut-link" href="tutorial-shadowrocket.html"><div class="tut-link-plat">iOS</div><div class="tut-link-name">Shadowrocket →</div></a>
+    <a class="tut-link" href="tutorial-quantumultx.html"><div class="tut-link-plat">iOS</div><div class="tut-link-name">Quantumult X →</div></a>
+    <a class="tut-link" href="tutorial-v2rayn.html"><div class="tut-link-plat">Windows</div><div class="tut-link-name">v2rayN →</div></a>
+    <a class="tut-link" href="tutorial-singbox-android.html"><div class="tut-link-plat">Android</div><div class="tut-link-name">sing-box →</div></a>
+  </div>
+
+</article>
+
+<footer style="max-width:860px;margin:60px auto 0;padding:32px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e0ddd5;flex-wrap:wrap;gap:12px;">
+  <span style="font-size:13px;color:#999;">big博客评测 · <strong style="color:#555;">独立 · 无广</strong></span>
+  <a href="/" style="font-size:13px;color:#888;">← 返回首页</a>
+</footer>
+</body>
+</html>
+

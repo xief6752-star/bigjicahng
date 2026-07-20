@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>big博客 · 独立评测</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans SC', sans-serif; background: #f7f6f2; color: #1a1a1a; font-size: 15px; line-height: 1.7; }
+a { color: inherit; text-decoration: none; }
+nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; border-bottom: 1px solid #e0ddd5; background: #f7f6f2; position: sticky; top: 0; z-index: 10; }
+.nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; }
+.nav-logo span { color: #888; font-weight: 400; margin-left: 8px; font-size: 12px; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-size: 13px; color: #666; transition: color .2s; }
+.nav-links a:hover { color: #1a1a1a; }
+.nav-back { font-size: 13px; color: #888; } .nav-back:hover { color: #1a1a1a; }
+@media (max-width: 640px) { nav { padding: 16px 20px; } }
+</style>
+
+
+</head>
+<body>
+
+
+<style>
+.article { max-width: 720px; margin: 0 auto; padding: 56px 48px 80px; }
+.art-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.rev-tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; background: #1a1a1a; color: #fff; padding: 3px 10px; border-radius: 3px; }
+.art-date { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb; }
+.art-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; letter-spacing: -1px; line-height: 1.25; margin-bottom: 8px; }
+.art-subtitle { font-size: 15px; color: #888; margin-bottom: 28px; }
+.score-bar { display: flex; align-items: center; gap: 20px; padding: 20px 24px; background: #1a1a1a; border-radius: 10px; margin-bottom: 36px; flex-wrap: wrap; gap: 16px; }
+.score-main { color: #f7f6f2; }
+.score-num { font-family: 'IBM Plex Mono', monospace; font-size: 3rem; font-weight: 500; line-height: 1; }
+.score-label { font-size: 12px; color: #888; margin-top: 4px; }
+.score-divider { width: 1px; height: 48px; background: #333; }
+.score-items { display: flex; gap: 20px; flex-wrap: wrap; }
+.score-item { color: #f7f6f2; }
+.score-item-val { font-family: 'IBM Plex Mono', monospace; font-size: 1.2rem; font-weight: 500; }
+.score-item-label { font-size: 11px; color: #666; margin-top: 2px; }
+
+/* Article Content Styles */
+.article h2 { font-size: 1.1rem; font-weight: 700; margin: 40px 0 14px; padding-top: 40px; border-top: 1px solid #e0ddd5; }
+.article h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+.article p { font-size: 15px; color: #333; line-height: 1.9; margin-bottom: 14px; }
+.article table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+.article thead tr { border-bottom: 2px solid #1a1a1a; }
+.article tbody tr { border-bottom: 1px solid #e0ddd5; }
+.article th { font-weight: 600; text-align: left; padding: 10px 12px 10px 0; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; }
+.article td { padding: 12px 12px 12px 0; color: #444; }
+.article td:first-child { font-weight: 600; color: #1a1a1a; }
+.article ul { margin: 12px 0 16px 20px; color: #555; font-size: 14px; line-height: 2; }
+.article .verdict { background: #fff; border: 1px solid #e0ddd5; border-radius: 10px; padding: 24px 26px; margin: 28px 0; }
+.article .verdict-title { font-weight: 700; margin-bottom: 12px; font-size: 15px; }
+.article .verdict-row { display: flex; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #555; align-items: flex-start; }
+.article .verdict-row:last-child { margin-bottom: 0; }
+.article .lyric-block { background: #1a1a1a; color: #f7f6f2; border-radius: 8px; padding: 22px 24px; margin: 32px 0; font-size: 14px; line-height: 1.9; font-weight: 300; }
+.article .lyric-block cite { font-style: normal; font-size: 12px; color: #666; display: block; margin-top: 8px; }
+.article .tip { background: #fff; border: 1px solid #e0ddd5; border-left: 3px solid #1a1a1a; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #555; line-height: 1.8; }
+.article .tip strong { color: #1a1a1a; }
+.article .warn { background: #fffbf0; border: 1px solid #f0e0a0; border-left: 3px solid #d4a017; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #666; line-height: 1.8; }
+.article .danger { background: #fff5f5; border: 1px solid #f0b0b0; border-left: 3px solid #c0392b; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #555; line-height: 1.8; }
+.article .danger strong { color: #c0392b; }
+.article .steps { display: flex; flex-direction: column; counter-reset: step; }
+.article .step { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid #e0ddd5; counter-increment: step; }
+.article .step:last-child { border-bottom: none; }
+.article .step-num { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb; min-width: 28px; margin-top: 2px; }
+.article .step-num::before { content: "0" counter(step); }
+.article .step-title { font-weight: 700; margin-bottom: 6px; }
+.article .step-desc { font-size: 14px; color: #555; line-height: 1.8; }
+.article code { font-family: 'IBM Plex Mono', monospace; background: #eee; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
+.article .code-block { background: #1e1e1e; border-radius: 8px; padding: 16px 20px; margin: 12px 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #cdd3de; line-height: 1.8; overflow-x: auto; }
+.article .other-tuts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+.article .tut-link { border: 1px solid #e0ddd5; border-radius: 8px; padding: 16px 18px; background: #fff; font-size: 13px; transition: border-color .2s; display: block; }
+.article .tut-link:hover { border-color: #aaa; }
+.article .tut-link-plat { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #aaa; margin-bottom: 4px; }
+.article .tut-link-name { font-weight: 700; }
+
+@media (max-width: 640px) { .article { padding: 36px 20px 60px; } .score-divider { display: none; } .other-tuts { grid-template-columns: 1fr; } }
+</style>
+
+<nav>
+  <div class="nav-logo">big博客<span>使用教程</span></div>
+  <a class="nav-back" href="/">← 返回首页</a>
+</nav>
+
+<article class="article">
+  <div class="art-eyebrow">
+    <span class="rev-tag" style="background: #2d3a2e">Cursor</span>
+    <span class="art-date">2026-05-24</span>
+  </div>
+  <h1 class="art-title">神级配置：在 Cursor 代码编辑器中接入自定义中转 API</h1>
+  <div class="art-subtitle">省去 $20/月订阅费，按量计费流畅调用 Claude 3.5 Sonnet 和 DeepSeek V3。</div>
+
+
+
+  
+  <div class="lyric-block">
+    「你也是这样的人吧，在这个冷冷清清的世上独自前行。」
+    <cite>—— 李志《热河》</cite>
+  </div>
+
+  <h2>前言：为什么要接入第三方中转 API？</h2>
+  <p>作为当今最强、最好用的智能 AI 代码编辑器，<strong>Cursor</strong> 凭借强大的 Composer（多文件修改）和高精度的上下文感知，正在彻底颠覆程序员的日常开发流程。</p>
+  <p>然而，官方 $20/月的 Pro 订阅对许多人来说存在两大痛点：首先是国内双币信用卡支付极易失败被拒；其次是官方通道在晚高峰期会对顶级模型（如 Claude 3.5 Sonnet）进行限流变慢。</p>
+  <p>实际上，Cursor 拥有极其自由开放的自定义接口。通过配置国内优秀的 <strong>第三方自定义中转 API（例如 4ksAPI 或硅基流动）</strong>，我们可以实现：</p>
+  <ul>
+    <li><strong>按量计费，开销骤减：</strong> 告别死板的月付订阅，对于中低频使用的极客来说，一个月实际调用可能只要几块钱到十几块钱人民币。</li>
+    <li><strong>不受限的极速通道：</strong> 晚高峰直接走国内优化链路，避开官方公网拥堵。</li>
+    <li><strong>满血版体验：</strong> 在编辑器中完美畅用 Claude 3.5 Sonnet 与 DeepSeek V3 满血大模型。</li>
+  </ul>
+
+  <h2>🛠️ 保姆级配置步骤</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <div class="step-title">第一步：获取 API 密钥与代理地址</div>
+        <div class="step-desc">
+          登录您信任的第三方中转站（如 4ksAPI 或硅基流动），在后台生成一个 API 密钥（Key），格式一般为 <code>sk-</code> 开头。同时获取其接口地址（Endpoint），例如 <code>https://api.4ksapi.com/v1</code>（<strong>千万注意：</strong>地址必须以 https 开头，且末尾不要遗漏 <code>/v1</code>）。
+        </div>
+      </div>
+    </div>
+    
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <div class="step-title">第二步：打开 Cursor 模型设置</div>
+        <div class="step-desc">
+          启动 Cursor，点击右上角的 <strong>“齿轮图标 (Settings)”</strong>（或者 Mac 上按住 <code>Cmd + ,</code>，Windows 上按住 <code>Ctrl + ,</code>）。选择左侧的 <strong>“Models”</strong> 菜单。
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <div class="step-title">第三步：接管 OpenAI 请求（核心要领）</div>
+        <div class="step-desc">
+          大部分中转站即便支持非 OpenAI 模型，但都在协议层完美兼容 OpenAI 标准格式。因此，<strong>我们只需要改写 OpenAI 路由即可代接所有模型</strong>。<br>
+          ① 启用 <strong>OpenAI API Key</strong> 开关（设为 ON）。<br>
+          ② 在输入框中粘贴刚才获取 of <code>sk-...</code> 中转 Key。<br>
+          ③ 点击 <strong>Configure</strong>，在 <strong>Override OpenAI Base URL</strong> 输入框中，准确填入刚才获取的中转代理地址，并点击 Save。
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <div class="step-title">第四步：添加自定义模型名称</div>
+        <div class="step-desc">
+          因为 Cursor 默认只预设了几个常用官方代号，我们需要手动增加我们想用的中转代号：<br>
+          ① 点击下方的 <strong>+ Add Model</strong>。<br>
+          ② 依次添加：<code>claude-3-5-sonnet</code> (顶级代码大模型)、<code>deepseek-chat</code> (极具性价比的满血版 DeepSeek V3)。<br>
+          ③ <strong>关键一步：</strong> 将 Cursor 原有默认的官方 Anthropic 或 Google 通道全部设为 OFF（关闭），以防请求串道。
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num"></div>
+      <div class="step-content">
+        <div class="step-title">第五步：快速开始与效果测试</div>
+        <div class="step-desc">
+          返回编辑器中，按 <code>Cmd + L</code> (Mac) 或 <code>Ctrl + L</code> (Win) 唤醒 Chat 面板。在左下角模型列表中选择我们刚才添加的 <code>claude-3-5-sonnet</code> 或者是 <code>deepseek-chat</code>，输入任何代码问题，若能秒开并输出代码，说明配置完美收工！
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>💡 常见排错与建议</h2>
+  <div class="warn">
+    <strong>报错 404 (Model Not Found)？</strong><br>
+    代表您的代理地址（Endpoint）漏写了末尾的 <code>/v1</code>，或者您所配的中转站账户中余额已经耗尽，部分中转站在欠费时会直接返回 404，请及时前往中转后台检查余额。
+  </div>
+  <div class="tip">
+    <strong>注意事项：</strong>接入自定义 API 密钥后，Cursor 的 <code>Tab</code> 实时代码自动补全功能（Cursor Tab Copilot）可能无法工作，该功能目前是官方专有协议。但多文件 Composer 编辑、Chat 聊天与指令代码改写功能全部完全正常，能覆盖 95% 以上开发需求！
+  </div>
+
+  <div class="lyric-block">
+    「明天会好的。」
+    <cite>—— 李志</cite>
+  </div>
+
+
+</article>
+
+<footer style="max-width:860px;margin:60px auto 0;padding:32px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e0ddd5;flex-wrap:wrap;gap:12px;">
+  <span style="font-size:13px;color:#999;">big博客评测 · <strong style="color:#555;">独立 · 无广</strong></span>
+  <a href="/" style="font-size:13px;color:#888;">← 返回首页</a>
+</footer>
+</body>
+</html>
+

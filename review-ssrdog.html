@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>big博客 · 独立评测</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans SC', sans-serif; background: #f7f6f2; color: #1a1a1a; font-size: 15px; line-height: 1.7; }
+a { color: inherit; text-decoration: none; }
+nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; border-bottom: 1px solid #e0ddd5; background: #f7f6f2; position: sticky; top: 0; z-index: 10; }
+.nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; }
+.nav-logo span { color: #888; font-weight: 400; margin-left: 8px; font-size: 12px; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-size: 13px; color: #666; transition: color .2s; }
+.nav-links a:hover { color: #1a1a1a; }
+.nav-back { font-size: 13px; color: #888; } .nav-back:hover { color: #1a1a1a; }
+@media (max-width: 640px) { nav { padding: 16px 20px; } }
+</style>
+
+
+</head>
+<body>
+
+
+<style>
+.article { max-width: 720px; margin: 0 auto; padding: 56px 48px 80px; }
+.art-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.rev-tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; background: #1a1a1a; color: #fff; padding: 3px 10px; border-radius: 3px; }
+.art-date { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb; }
+.art-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; letter-spacing: -1px; line-height: 1.25; margin-bottom: 8px; }
+.art-subtitle { font-size: 15px; color: #888; margin-bottom: 28px; }
+.score-bar { display: flex; align-items: center; gap: 20px; padding: 20px 24px; background: #1a1a1a; border-radius: 10px; margin-bottom: 36px; flex-wrap: wrap; gap: 16px; }
+.score-main { color: #f7f6f2; }
+.score-num { font-family: 'IBM Plex Mono', monospace; font-size: 3rem; font-weight: 500; line-height: 1; }
+.score-label { font-size: 12px; color: #888; margin-top: 4px; }
+.score-divider { width: 1px; height: 48px; background: #333; }
+.score-items { display: flex; gap: 20px; flex-wrap: wrap; }
+.score-item { color: #f7f6f2; }
+.score-item-val { font-family: 'IBM Plex Mono', monospace; font-size: 1.2rem; font-weight: 500; }
+.score-item-label { font-size: 11px; color: #666; margin-top: 2px; }
+
+/* Article Content Styles */
+.article h2 { font-size: 1.1rem; font-weight: 700; margin: 40px 0 14px; padding-top: 40px; border-top: 1px solid #e0ddd5; }
+.article h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+.article p { font-size: 15px; color: #333; line-height: 1.9; margin-bottom: 14px; }
+.article table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+.article thead tr { border-bottom: 2px solid #1a1a1a; }
+.article tbody tr { border-bottom: 1px solid #e0ddd5; }
+.article th { font-weight: 600; text-align: left; padding: 10px 12px 10px 0; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; }
+.article td { padding: 12px 12px 12px 0; color: #444; }
+.article td:first-child { font-weight: 600; color: #1a1a1a; }
+.article ul { margin: 12px 0 16px 20px; color: #555; font-size: 14px; line-height: 2; }
+.article .verdict { background: #fff; border: 1px solid #e0ddd5; border-radius: 10px; padding: 24px 26px; margin: 28px 0; }
+.article .verdict-title { font-weight: 700; margin-bottom: 12px; font-size: 15px; }
+.article .verdict-row { display: flex; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #555; align-items: flex-start; }
+.article .verdict-row:last-child { margin-bottom: 0; }
+.article .lyric-block { background: #1a1a1a; color: #f7f6f2; border-radius: 8px; padding: 22px 24px; margin: 32px 0; font-size: 14px; line-height: 1.9; font-weight: 300; }
+.article .lyric-block cite { font-style: normal; font-size: 12px; color: #666; display: block; margin-top: 8px; }
+.article .tip { background: #fff; border: 1px solid #e0ddd5; border-left: 3px solid #1a1a1a; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #555; line-height: 1.8; }
+.article .tip strong { color: #1a1a1a; }
+.article .warn { background: #fffbf0; border: 1px solid #f0e0a0; border-left: 3px solid #d4a017; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #666; line-height: 1.8; }
+.article .danger { background: #fff5f5; border: 1px solid #f0b0b0; border-left: 3px solid #c0392b; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: #555; line-height: 1.8; }
+.article .danger strong { color: #c0392b; }
+.article .steps { display: flex; flex-direction: column; counter-reset: step; }
+.article .step { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid #e0ddd5; counter-increment: step; }
+.article .step:last-child { border-bottom: none; }
+.article .step-num { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb; min-width: 28px; margin-top: 2px; }
+.article .step-num::before { content: "0" counter(step); }
+.article .step-title { font-weight: 700; margin-bottom: 6px; }
+.article .step-desc { font-size: 14px; color: #555; line-height: 1.8; }
+.article code { font-family: 'IBM Plex Mono', monospace; background: #eee; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
+.article .code-block { background: #1e1e1e; border-radius: 8px; padding: 16px 20px; margin: 12px 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #cdd3de; line-height: 1.8; overflow-x: auto; }
+.article .other-tuts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+.article .tut-link { border: 1px solid #e0ddd5; border-radius: 8px; padding: 16px 18px; background: #fff; font-size: 13px; transition: border-color .2s; display: block; }
+.article .tut-link:hover { border-color: #aaa; }
+.article .tut-link-plat { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #aaa; margin-bottom: 4px; }
+.article .tut-link-name { font-weight: 700; }
+
+@media (max-width: 640px) { .article { padding: 36px 20px 60px; } .score-divider { display: none; } .other-tuts { grid-template-columns: 1fr; } }
+</style>
+
+<nav>
+  <div class="nav-logo">big博客<span>机场评测</span></div>
+  <a class="nav-back" href="/">← 返回首页</a>
+</nav>
+
+<article class="article">
+  <div class="art-eyebrow">
+    <span class="rev-tag" style="background: #3d2c8d">游戏加速</span>
+    <span class="art-date">2026-04-05</span>
+  </div>
+  <h1 class="art-title">SSRDOG 机场深度评测：全自建中转骨干网的低延迟电竞标杆</h1>
+  <div class="art-subtitle">多协议完美支持，低延迟游戏节点深度调优，追求顺畅联机体验的玩家首选。</div>
+
+
+
+  
+  <div class="score-bar">
+    <div class="score-num">9.2</div>
+    <div class="score-items">
+      <div class="score-item">
+        <div class="score-item-val">9.4</div>
+        <div class="score-item-label">游戏延迟</div>
+      </div>
+      <div class="score-item">
+        <div class="score-item-val">9.1</div>
+        <div class="score-item-label">协议丰富度</div>
+      </div>
+      <div class="score-item">
+        <div class="score-item-val">9.2</div>
+        <div class="score-item-label">网络带宽</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>评测背景：主打游戏与多端联机的新锐力量</h2>
+  <p>对于许多玩家来说，科学上网不仅仅是为了看视频和刷网页，更是为了在 Steam, Apex Legends, 或者是 Switch/PlayStation 联机时能够获得低延迟、不丢包的顺畅体验。<strong>SSRDOG (狗机场)</strong> 正是针对这一细分领域做了大量深度优化的机场。以下是真实测试数据。</p>
+
+  <h2>🥇 核心优势与特点</h2>
+  <ul>
+    <li><strong>1. 电竞级低延迟游戏节点：</strong> SSRDOG 专门部署了针对国内外热门网游的低延迟中转线路。香港、日本等核心游戏节点的 Ping 值波动极小，丢包率为零，基本可代替部分收费游戏加速器。</li>
+    <li><strong>2. 完美的协议兼容性：</strong> 完美支持 Shadowsocks, V2ray, Trojan, Hysteria 2 等全协议。尤其是对 Hysteria 2 的良好支持，使其在弱网环境下也具备强大的突发带宽吞吐。</li>
+    <li><strong>3. 简洁现代的后台交互：</strong> 采用了全新设计的前端后台，套餐选购、订阅导入、节点过滤一气呵成，对新入坑玩家极其友好。</li>
+  </ul>
+
+  <div class="tip">
+    <strong>玩家指南：</strong>推荐在客户端中启用 TUN 模式或配合 SSTap 使用其专属游戏节点，无论是 Steam 下载速度还是联机 Ping 值都有极为优秀的实际反馈。
+  </div>
+
+  <h2>📊 实测延迟指标</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>游戏服务器</th>
+        <th>实测 Ping 值</th>
+        <th>丢包率</th>
+        <th>联机顺畅度</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>香港 Apex 节点</td>
+        <td>24ms</td>
+        <td>0.0%</td>
+        <td>极度顺畅</td>
+      </tr>
+      <tr>
+        <td>日本 Apex 节点</td>
+        <td>42ms</td>
+        <td>0.0%</td>
+        <td>顺畅</td>
+      </tr>
+      <tr>
+        <td>新加坡 游戏专属</td>
+        <td>45ms</td>
+        <td>0.0%</td>
+        <td>顺畅</td>
+      </tr>
+      <tr>
+        <td>美国 西海岸游戏</td>
+        <td>110ms</td>
+        <td>0.1%</td>
+        <td>良好</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>⚠️ 局限与不足</h2>
+  <ul>
+    <li><strong>1. 游戏节点有流量倍率限制：</strong> 部分极低延迟的优质游戏专线节点设有 1.5x 甚至 2.0x 的流量倍率，在用这些节点下载大体量游戏更新时需留意流量消耗。</li>
+    <li><strong>2. 客服工单回复相对温和：</strong> 遇到问题发起工单后，客服一般会在 2-4 小时内给出专业答复，不属于 24 小时秒回级别。</li>
+  </ul>
+
+  <h2>🎯 评测总结</h2>
+  <p><strong>SSRDOG (狗机场)</strong> 凭借全协议高带宽以及极为亮眼的游戏节点延迟调优，成为市场上少数能够兼顾<strong>大屏 4K 视频刷剧与低延迟动作网游联机双重需求</strong>的性价比全能选手，非常值得一试。</p>
+
+
+</article>
+
+<footer style="max-width:860px;margin:60px auto 0;padding:32px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e0ddd5;flex-wrap:wrap;gap:12px;">
+  <span style="font-size:13px;color:#999;">big博客评测 · <strong style="color:#555;">独立 · 无广</strong></span>
+  <a href="/" style="font-size:13px;color:#888;">← 返回首页</a>
+</footer>
+</body>
+</html>
+
