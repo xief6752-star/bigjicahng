@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bigjichang.com/sitemap.xml
+Sitemap: https://chinabigai.com/sitemap.xml
