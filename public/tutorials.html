@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>全部配置教程 · Clash/Shadowrocket/sing-box · big博客</title>
+
+<meta name="description" content="汇总 Clash for Windows、ClashX、Shadowrocket、sing-box 等主流客户端的详细配置教程，涵盖安装、订阅导入、分流规则与省电优化，新手也能快速上手。">
+<meta property="og:description" content="汇总 Clash for Windows、ClashX、Shadowrocket、sing-box 等主流客户端的详细配置教程，涵盖安装、订阅导入、分流规则与省电优化，新手也能快速上手。">
+<meta name="twitter:description" content="汇总 Clash for Windows、ClashX、Shadowrocket、sing-box 等主流客户端的详细配置教程，涵盖安装、订阅导入、分流规则与省电优化，新手也能快速上手。">
+
+
+<meta property="og:title" content="全部配置教程 · Clash/Shadowrocket/sing-box · big博客">
+<meta name="twitter:title" content="全部配置教程 · Clash/Shadowrocket/sing-box · big博客">
+
+<meta property="og:site_name" content="big博客">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans SC', sans-serif; background: #f7f6f2; color: #1a1a1a; font-size: 15px; line-height: 1.7; }
+a { color: inherit; text-decoration: none; }
+nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; border-bottom: 1px solid #e0ddd5; background: #f7f6f2; position: sticky; top: 0; z-index: 10; }
+.nav-logo { font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; }
+.nav-logo span { color: #888; font-weight: 400; margin-left: 8px; font-size: 12px; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-size: 13px; color: #666; transition: color .2s; }
+.nav-links a:hover { color: #1a1a1a; }
+.nav-back { font-size: 13px; color: #888; } .nav-back:hover { color: #1a1a1a; }
+@media (max-width: 640px) { nav { padding: 16px 20px; } }
+</style>
+
+
+</head>
+<body>
+
+
+<style>
+.list-page { max-width: 860px; margin: 0 auto; padding: 56px 48px 80px; }
+.list-header { margin-bottom: 40px; border-bottom: 2px solid #1a1a1a; padding-bottom: 24px; }
+.list-back { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #888; margin-bottom: 16px; display: inline-block; }
+.list-back:hover { color: #1a1a1a; }
+.list-title { font-size: 2rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 8px; }
+.list-count { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #aaa; }
+
+/* Review list */
+.rev-list { display: flex; flex-direction: column; gap: 0; }
+.rev-item { display: flex; align-items: flex-start; gap: 24px; padding: 28px 0; border-bottom: 1px solid #e0ddd5; transition: opacity .2s; }
+.rev-item:hover { opacity: .7; }
+.rev-item:last-child { border-bottom: none; }
+.rev-score { font-family: 'IBM Plex Mono', monospace; font-size: 2rem; font-weight: 500; color: #1a1a1a; line-height: 1; width: 60px; flex-shrink: 0; padding-top: 4px; }
+.rev-info { flex: 1; }
+.rev-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.rev-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 3px; font-weight: 500; background: #1a1a1a; color: #fff; }
+.tag-red { background: #5a1e1e; }
+.tag-brown { background: #6b3a2a; }
+.tag-blue { background: #1d3557; }
+.rev-date { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #aaa; }
+.rev-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+.rev-desc { font-size: 14px; color: #666; line-height: 1.6; }
+
+/* Tut / knowledge grid */
+.tut-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.tut-item { border: 1px solid #e0ddd5; border-radius: 8px; padding: 20px 24px; background: #fff; transition: border-color .2s; display: block; }
+.tut-item:hover { border-color: #aaa; }
+.tut-plat { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888; margin-bottom: 8px; }
+.tut-name { font-weight: 700; font-size: 15px; color: #1a1a1a; }
+.tut-date { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #bbb; margin-top: 8px; }
+
+@media (max-width: 640px) {
+  .list-page { padding: 32px 20px 60px; }
+  .tut-list { grid-template-columns: 1fr; }
+  .rev-item { flex-direction: column; gap: 12px; }
+  .rev-score { font-size: 1.6rem; }
+}
+</style>
+
+<nav>
+  <div class="nav-logo">big博客<span>独立评测</span></div>
+  <div class="nav-links">
+    <a href="/#reviews">评测</a>
+    <a href="/#tutorials">教程</a>
+    <a href="/#knowledge">科普</a>
+  </div>
+</nav>
+
+<div class="list-page">
+  <div class="list-header">
+    <a href="/" class="list-back">← 返回首页</a>
+    <h1 class="list-title">全部配置教程 · Clash/Shadowrocket/sing-box</h1>
+    <div class="list-count">共 13 篇</div>
+  </div>
+
+  
+  <div class="tut-list">
+    
+    <a href="save-battery-clash-shadowrocket.html" class="tut-item">
+      <div class="tut-plat">实用教程</div>
+      <div class="tut-name">手机挂着梯子耗电太快？教你如何正确配置 Clash/Shadowrocket 的分流规则省电 →</div>
+      <div class="tut-date">2026-06-26</div>
+    </a>
+    
+    <a href="openai-ban-recovery.html" class="tut-item">
+      <div class="tut-plat">防封教程</div>
+      <div class="tut-name">血泪史总结：被 OpenAI 大规模封号后该怎么办？防封存活与极致申诉实操 →</div>
+      <div class="tut-date">2026-06-18</div>
+    </a>
+    
+    <a href="how-to-read-speedtest-seo.html" class="tut-item">
+      <div class="tut-plat">防骗教程</div>
+      <div class="tut-name">如何通过测速图判断机场的真实质量？教你避开虚假宣传 →</div>
+      <div class="tut-date">2026-06-15</div>
+    </a>
+    
+    <a href="shadowrocket-advanced.html" class="tut-item">
+      <div class="tut-plat">iOS</div>
+      <div class="tut-name">Shadowrocket 高级分流规则与自定义配置 →</div>
+      <div class="tut-date">2026-05-28</div>
+    </a>
+    
+    <a href="tutorial-cursor.html" class="tut-item">
+      <div class="tut-plat">Cursor</div>
+      <div class="tut-name">神级配置：在 Cursor 代码编辑器中接入自定义中转 API →</div>
+      <div class="tut-date">2026-05-24</div>
+    </a>
+    
+    <a href="tutorial-quantumultx.html" class="tut-item">
+      <div class="tut-plat">iOS 进阶</div>
+      <div class="tut-name">Quantumult X (圈叉) iOS 使用教程：订阅导入、分流规则配置全指南 →</div>
+      <div class="tut-date">2025-10-29</div>
+    </a>
+    
+    <a href="tutorial-singbox-android.html" class="tut-item">
+      <div class="tut-plat">Android</div>
+      <div class="tut-name">sing-box Android 端详细使用教程与配置指南 →</div>
+      <div class="tut-date">2025-10-28</div>
+    </a>
+    
+    <a href="tutorial-shadowrocket.html" class="tut-item">
+      <div class="tut-plat">iOS</div>
+      <div class="tut-name">Shadowrocket（小火箭）详细使用教程与订阅配置 →</div>
+      <div class="tut-date">2025-10-17</div>
+    </a>
+    
+    <a href="tutorial-mihomo-router.html" class="tut-item">
+      <div class="tut-plat">路由器</div>
+      <div class="tut-name">OpenWrt + Mihomo<br>旁路由透明代理教程 →</div>
+      <div class="tut-date">2025-09-25</div>
+    </a>
+    
+    <a href="tutorial-v2rayn.html" class="tut-item">
+      <div class="tut-plat">Windows</div>
+      <div class="tut-name">v2rayN Windows 使用教程：下载安装、订阅导入与节点切换完整步骤 →</div>
+      <div class="tut-date">2025-02-23</div>
+    </a>
+    
+    <a href="tutorial-v2rayu.html" class="tut-item">
+      <div class="tut-plat">macOS</div>
+      <div class="tut-name">V2RayU macOS 使用教程：安装配置、订阅添加与代理模式切换 →</div>
+      <div class="tut-date">2023-10-19</div>
+    </a>
+    
+    <a href="tutorial-clashx-mac.html" class="tut-item">
+      <div class="tut-plat">macOS</div>
+      <div class="tut-name">ClashX / ClashX Pro 使用教程与详细配置说明 →</div>
+      <div class="tut-date">2023-08-10</div>
+    </a>
+    
+    <a href="tutorial-clash-win.html" class="tut-item">
+      <div class="tut-plat">Windows</div>
+      <div class="tut-name">Clash for Windows（CFW）详细使用教程与配置指南 →</div>
+      <div class="tut-date">2023-01-04</div>
+    </a>
+    
+  </div>
+  
+</div>
+
+<footer style="max-width:860px;margin:60px auto 0;padding:32px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e0ddd5;flex-wrap:wrap;gap:12px;">
+  <span style="font-size:13px;color:#999;">big博客评测 · <strong style="color:#555;">独立 · 无广</strong></span>
+  <a href="/" style="font-size:13px;color:#888;">← 返回首页</a>
+<div style="width:100%;text-align:center;padding:10px 0 0;font-size:12px;opacity:.65;margin-top:14px;border-top:1px solid rgba(128,128,128,.15)">
+  <a href="https://t.me/shinhuw" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">📱 联系我们：<strong>@shinhuw</strong></a>
+</div>
+</footer>
+</body>
+</html>
+
